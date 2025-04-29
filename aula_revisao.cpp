@@ -104,12 +104,12 @@ int main()
 
     cout << "Digite uma string: " << endl;
     cin.ignore(); //Limpa o buffer de entrada
+    getline(cin, str);
 
     cout << "Digite um caractere: " << endl;
     cin >> ch;
     cin.ignore(); //Limpa o buffer de entrada
 
-    getline(cin, str);
     int posicao = 0;
     posicao = procuraChar(str, ch);
 
