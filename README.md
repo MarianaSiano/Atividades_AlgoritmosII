@@ -1,1 +1,3 @@
-# Atividades_AlgoritmosII
+# Atividades AlgoritmosII
+
+Algumas atividades de Algoritmo II
