@@ -95,92 +95,102 @@ float maiorValorPar(int n, float vetor[])
     return maior;
 }
 
+//Atividade 13
+void lerNegativos(int n, float vetor[])
+{
+    for(int i = 0; i < n; i++) {
+        if(vetor[i] < 0) {
+            cout << "Valor negativo: " << vetor[i] << endl;
+        }
+    }
+}
+
 int main()
 {
-    // cout << "Ativide 1 - Parte 1" <<endl;
-    // cout << endl;
+    cout << "Ativide 1 - Parte 1" <<endl;
+    cout << endl;
 
-    // float media = 0.0;
-    // int tamanho = 0;
+    float media = 0.0;
+    int tamanho = 0;
 
-    // cout << "Digite um numero SEM VIRGULA, para a quantidade de numeros: " << endl;
-    // cin >> tamanho;
+    cout << "Digite um numero SEM VIRGULA, para a quantidade de numeros: " << endl;
+    cin >> tamanho;
 
-    // media = calculaMedia(tamanho);
-    // cout << "Tamanho: " << tamanho << endl;
-    // cout << "Media: " << media << endl;
-    // cout << endl;
+    media = calculaMedia(tamanho);
+    cout << "Tamanho: " << tamanho << endl;
+    cout << "Media: " << media << endl;
+    cout << endl;
 
-    // cout << "Parte 2" << endl;
-    // cout << endl;
+    cout << "Parte 2" << endl;
+    cout << endl;
 
-    // float vetor[tamanho];
+    float vetor[tamanho];
 
-    // for(int i = 0; i < tamanho; i++) {
-    //     cout << "Digite o valor (parte 2): " << endl;
-    //     cin >> vetor[i];
-    // }
+    for(int i = 0; i < tamanho; i++) {
+        cout << "Digite o valor (parte 2): " << endl;
+        cin >> vetor[i];
+    }
 
-    // cout << "Numeros digitados: ";
-    // for(int i = 0; i < tamanho; i++)
-    //     cout << " " <<vetor[i] << " ";
-    // cout << endl;
+    cout << "Numeros digitados: ";
+    for(int i = 0; i < tamanho; i++)
+        cout << " " <<vetor[i] << " ";
+    cout << endl;
 
-    // float mediaVet = vetorCalculaMedia(tamanho, vetor);
-    // cout << "Tamanho: " << tamanho << endl;
-    // cout << "Media: " << media << endl;
-    // cout << endl;
+    float mediaVet = vetorCalculaMedia(tamanho, vetor);
+    cout << "Tamanho: " << tamanho << endl;
+    cout << "Media: " << media << endl;
+    cout << endl;
 
-    // cout << "Atividade 4" << endl;
-    // cout << endl;
+    cout << "Atividade 4" << endl;
+    cout << endl;
 
-    // string str;
-    // char ch;
+    string str;
+    char ch;
 
-    // cout << "Digite uma string: " << endl;
-    // cin.ignore(); //Limpa o buffer de entrada
-    // getline(cin, str);
+    cout << "Digite uma string: " << endl;
+    cin.ignore(); //Limpa o buffer de entrada
+    getline(cin, str);
 
-    // cout << "Digite um caractere: " << endl;
-    // cin >> ch;
-    // cin.ignore(); //Limpa o buffer de entrada
+    cout << "Digite um caractere: " << endl;
+    cin >> ch;
+    cin.ignore(); //Limpa o buffer de entrada
 
-    // int posicao = 0;
-    // posicao = procuraChar(str, ch);
+    int posicao = 0;
+    posicao = procuraChar(str, ch);
 
-    // if(posicao != -1)
-    //     cout << "O caractere " << ch << " foi encontrado na posicao: " << posicao << endl;
-    // else
-    //     cout << "O caractere " << ch << " NAO foi encontrado na string." << endl;
-    // cout << endl;
+    if(posicao != -1)
+        cout << "O caractere " << ch << " foi encontrado na posicao: " << posicao << endl;
+    else
+        cout << "O caractere " << ch << " NAO foi encontrado na string." << endl;
+    cout << endl;
 
-    // cout << endl;
-    // cout << "Atividade 5" << endl;
-    // cout << endl;
+    cout << endl;
+    cout << "Atividade 5" << endl;
+    cout << endl;
 
-    // int numero;
-    // numero = 0;
+    int numero;
+    numero = 0;
 
-    // cout << "Digite um numero: " << endl;
-    // cin >> numero;
+    cout << "Digite um numero: " << endl;
+    cin >> numero;
     
-    // if(ehPrimo(numero))
-    //     cout << "O numero " << numero << " eh primo." << endl;
-    // else
-    //     cout << "O numero " << numero << " NAO eh primo." << endl;
+    if(ehPrimo(numero))
+        cout << "O numero " << numero << " eh primo." << endl;
+    else
+        cout << "O numero " << numero << " NAO eh primo." << endl;
 
-    // cout << endl;
-    // cout << "Atividade 7" << endl;
-    // cout << endl;
+    cout << endl;
+    cout << "Atividade 7" << endl;
+    cout << endl;
 
-    // int numFatorial;
-    // numFatorial = 1;
+    int numFatorial;
+    numFatorial = 1;
 
-    // cout << "Digite um numero para calcular o fatorial: " << endl;
-    // cin >> numFatorial;
+    cout << "Digite um numero para calcular o fatorial: " << endl;
+    cin >> numFatorial;
 
-    // unsigned long long resultadoFatorial = fatorial(numFatorial);
-    // cout << "O fatorial de " << numFatorial << " eh: " << resultadoFatorial << endl;
+    unsigned long long resultadoFatorial = fatorial(numFatorial);
+    cout << "O fatorial de " << numFatorial << " eh: " << resultadoFatorial << endl;
     cout << endl;
 
     cout << "Atividade 12" << endl;
@@ -206,6 +216,30 @@ int main()
 
     float maiorPar = maiorValorPar(n, vet);
     cout << "O maior valor par eh: " << maiorPar << endl;
+    cout << endl;
+
+    cout << "Atividade 13" << endl;
+    cout << endl;
+
+    int tam;
+    tam = 0;
+
+    cout << "Digite um numero SEM VIRGULA, para a quantidade de numeros: " << endl;
+    cin >> tam;
+
+    float vet[tam];
+    for(int i = 0; i < tam; i++) {
+        cout << "Digite o valor: " << endl;
+        cin >> vet[i];
+    }
+    cout << endl;
+
+    cout << "Numeros digitados: ";
+    for(int i = 0; i < tam; i++)
+        cout << " " << vet[i];
+    cout << endl;
+
+    lerNegativos(tam, vet);
 
     return 0;
 }
