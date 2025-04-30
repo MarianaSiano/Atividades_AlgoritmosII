@@ -7,7 +7,7 @@ run2:
 	./main
 
 # Defina os arquivos que você deseja limpar
-FILES_TO_CLEAN = main *.dot *.png *.txt
+FILES_TO_CLEAN = main *.dot *.png *.txt *.exe
 
 # Alvo para limpar arquivos
 clear:
