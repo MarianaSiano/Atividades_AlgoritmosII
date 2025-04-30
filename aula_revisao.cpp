@@ -58,66 +58,94 @@ int procuraChar(string str, char ch)
         i++;
     }
     return -1; //Retorna -1 se o caractere não for encontrado
-}   
+}
+
+bool ehPrimo(int n)
+{
+    if(n < 2) 
+        return false; //Números menores que 2 não são primos
+
+    for(int i = 2; i <= n / 2; i++) {
+        if(n % i == 0) 
+            return false; //Se n for divisível por i, não é primo
+    }
+
+    return true; //Se não encontrou divisores, é primo
+}
 
 int main()
 {
-    cout << "Ativide 1 - Parte 1" <<endl;
+    // cout << "Ativide 1 - Parte 1" <<endl;
+    // cout << endl;
+
+    // float media = 0.0;
+    // int tamanho = 0;
+
+    // cout << "Digite um numero SEM VIRGULA, para a quantidade de numeros: " << endl;
+    // cin >> tamanho;
+
+    // media = calculaMedia(tamanho);
+    // cout << "Tamanho: " << tamanho << endl;
+    // cout << "Media: " << media << endl;
+    // cout << endl;
+
+    // cout << "Parte 2" << endl;
+    // cout << endl;
+
+    // float vetor[tamanho];
+
+    // for(int i = 0; i < tamanho; i++) {
+    //     cout << "Digite o valor (parte 2): " << endl;
+    //     cin >> vetor[i];
+    // }
+
+    // cout << "Numeros digitados: ";
+    // for(int i = 0; i < tamanho; i++)
+    //     cout << " " <<vetor[i] << " ";
+    // cout << endl;
+
+    // float mediaVet = vetorCalculaMedia(tamanho, vetor);
+    // cout << "Tamanho: " << tamanho << endl;
+    // cout << "Media: " << media << endl;
+    // cout << endl;
+
+    // cout << "Atividade 4" << endl;
+    // cout << endl;
+
+    // string str;
+    // char ch;
+
+    // cout << "Digite uma string: " << endl;
+    // cin.ignore(); //Limpa o buffer de entrada
+    // getline(cin, str);
+
+    // cout << "Digite um caractere: " << endl;
+    // cin >> ch;
+    // cin.ignore(); //Limpa o buffer de entrada
+
+    // int posicao = 0;
+    // posicao = procuraChar(str, ch);
+
+    // if(posicao != -1)
+    //     cout << "O caractere " << ch << " foi encontrado na posicao: " << posicao << endl;
+    // else
+    //     cout << "O caractere " << ch << " NAO foi encontrado na string." << endl;
+    // cout << endl;
+
+    cout << endl;
+    cout << "Atividade 5" << endl;
     cout << endl;
 
-    float media = 0.0;
-    int tamanho = 0;
+    int numero;
+    numero = 0;
 
-    cout << "Digite um numero SEM VIRGULA, para a quantidade de numeros: " << endl;
-    cin >> tamanho;
-
-    media = calculaMedia(tamanho);
-    cout << "Tamanho: " << tamanho << endl;
-    cout << "Media: " << media << endl;
-    cout << endl;
-
-    cout << "Parte 2" << endl;
-    cout << endl;
-
-    float vetor[tamanho];
-
-    for(int i = 0; i < tamanho; i++) {
-        cout << "Digite o valor (parte 2): " << endl;
-        cin >> vetor[i];
-    }
-
-    cout << "Numeros digitados: ";
-    for(int i = 0; i < tamanho; i++)
-        cout << " " <<vetor[i] << " ";
-    cout << endl;
-
-    float mediaVet = vetorCalculaMedia(tamanho, vetor);
-    cout << "Tamanho: " << tamanho << endl;
-    cout << "Media: " << media << endl;
-    cout << endl;
-
-    cout << "Atividade 4" << endl;
-    cout << endl;
-
-    string str;
-    char ch;
-
-    cout << "Digite uma string: " << endl;
-    cin.ignore(); //Limpa o buffer de entrada
-    getline(cin, str);
-
-    cout << "Digite um caractere: " << endl;
-    cin >> ch;
-    cin.ignore(); //Limpa o buffer de entrada
-
-    int posicao = 0;
-    posicao = procuraChar(str, ch);
-
-    if(posicao != -1)
-        cout << "O caractere " << ch << " foi encontrado na posicao: " << posicao << endl;
+    cout << "Digite um numero: " << endl;
+    cin >> numero;
+    
+    if(ehPrimo(numero))
+        cout << "O numero " << numero << " eh primo." << endl;
     else
-        cout << "O caractere " << ch << " NAO foi encontrado na string." << endl;
-    cout << endl;
+        cout << "O numero " << numero << " NAO eh primo." << endl;
 
     return 0;
 }
