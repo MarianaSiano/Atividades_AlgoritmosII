@@ -17,6 +17,27 @@ void divisao(int num, int div, int *q, int *r)
     *r = num % div; //Armazena o resto no endereco apontado por 'r'
 }
 
+//Atividade 6
+bool func(int tam, int vet[], int *par, int *impar, int *negativos)
+{
+    for(int i = 0; i < tam; i++) {
+        if(vet[i] % 2 == 0) {
+            *(par) += 1;
+        }
+
+        else if(vet[i] % 2 != 0) {
+            *(impar) += 1;
+        }
+
+        if(vet[i] < 0) {
+            *(negativos) += 1;
+            return true; //Tem numeros negativos
+        }
+    }
+
+    return false; //Nao possui nenhum numero negativo
+}
+
 int main()
 {
     cout << "Atividade 1" << endl;
@@ -227,6 +248,38 @@ int main()
 
     cout << "Resultado do quociente: " << quociente << endl;
     cout << "Resultado do resto: " << resto << endl;
+    cout << endl;
+
+    cout << "Atividade 6" << endl;
+    cout << endl;
+
+    int tamanho;
+    cout << "Digite um tamanho para uma lista de numeros INTEIROS: ";
+    cin >> tamanho;
+
+    int vet[tamanho];
+    for(int i = 0; i < tamanho; i++){
+        cout << "Digite numeros INTEIROS: ";
+        cin >> vet[i];
+    }
+    cout << endl;
+    
+    cout << "Numeros digitados: ";
+    for(int i = 0; i < tamanho; i++)
+        cout << vet[i] << " ";
+    cout << endl;
+
+    int par, impar, negativos;
+    par = 0;
+    impar = 0;
+    negativos = 0;
+
+    cout << "Fazendo os 'calculos' no vetor" << endl;
+    bool hasNeg = func(tamanho, vet, &par, &impar, &negativos);
+    cout << "Numeros pares: " << par << endl;
+    cout << "Numeros impares: " << impar << endl;
+    cout << "Numeros negativos: " << negativos << endl;
+    cout << "Existe numero negativo? (0 significa que nao e 1 que existe): " << hasNeg << endl;
 
     return 0;
 }
