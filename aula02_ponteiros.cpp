@@ -2,6 +2,13 @@
 
 using namespace std;
 
+void troca(int *a, int *b)
+{
+    int aux = *a;
+    *a = *b;
+    *b = aux;
+}
+
 int main()
 {
     cout << "Atividade 1" << endl;
@@ -174,6 +181,25 @@ int main()
     pt3 = pt2;
     cout << "Endereco do segundo ponteiro: " << pt3 << endl;
     cout << endl;
+
+    cout << "Atividade 4" << endl;
+    cout << endl;
+
+    int numero1, numero2;
+    cout << "Digite um numero INTEIRO: ";
+    cin >> numero1;
+    cout << "Digite outro numero INTEIRO: ";
+    cin >> numero2;
+
+    cout << "Valor do primeiro numero: " << numero1 << endl;
+    cout << "Valor do segundo numero: " << numero2 << endl;
+    cout << endl;
+
+    cout << "Fazendo a troca dos valores" << endl;
+    troca(&numero1, &numero2);
+
+    cout << "Novo valor do primeiro numero: " << numero1 << endl;
+    cout << "Novo valor do segundo numero: " << numero2 << endl;
 
     return 0;
 }
