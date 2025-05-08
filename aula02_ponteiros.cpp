@@ -134,6 +134,46 @@ int main()
     cout << endl;
 
     cout << endl;
+    cout << "Atividade 3" << endl;
+    cout << endl;
+
+    int x;
+    float y;
+
+    x = 23;
+    y = 9.7;
+
+    int *ponteiro = nullptr;
+    ponteiro = &x;
+    cout << "Valor do primeiro ponteiro: " << *ponteiro << endl;
+    *(ponteiro) += 1;
+    cout << "Novo valor do ponteiro apos o incremento: " << *ponteiro << endl;
+    cout << endl;
+
+    float *pt2 = nullptr;
+    pt2 = &y;
+    cout << "Valor do segundo ponteiro: " << *pt2 << endl;
+    cout << endl;
+
+    float soma = *ponteiro + *pt2;
+    cout << "O resultado da soma dos ponteiro foi de: " << soma << endl;
+    cout << endl;
+
+    cout << "Endereco de 'x': " << ponteiro << endl;
+    cout << "Endereco de 'x' somando-se 16 bytes: " << ponteiro + 16 << endl;
+    cout << endl;
+
+    float *pt3 = nullptr;
+    pt3 = &y;
+    cout << "Valor do endereco de memoria do terceiro ponteiro: " << pt3 << endl;
+    pt3 += 1;
+    cout << "Novo endereco de memoria de pt3: " << pt3 << endl;
+    cout << endl;
+
+    cout << "Endereco do terceiro ponteiro: " << pt3 << endl;
+    pt3 = pt2;
+    cout << "Endereco do segundo ponteiro: " << pt3 << endl;
+    cout << endl;
 
     return 0;
 }
