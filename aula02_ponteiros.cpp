@@ -2,7 +2,7 @@
 
 using namespace std;
 
-//Atividade 4
+//Atividade 4 e 7
 void troca(int *a, int *b)
 {
     int aux = *a;
@@ -36,6 +36,13 @@ bool func(int tam, int vet[], int *par, int *impar, int *negativos)
     }
 
     return false; //Nao possui nenhum numero negativo
+}
+
+//Atividade 7
+void inverte(int vet[], int n) 
+{
+    for(int i = 0; i < n / 2; i++)
+        troca(&vet[i], &vet[n - 1 - i]); //Troca elementos simétricos
 }
 
 int main()
@@ -280,6 +287,33 @@ int main()
     cout << "Numeros impares: " << impar << endl;
     cout << "Numeros negativos: " << negativos << endl;
     cout << "Existe numero negativo? (0 significa que nao e 1 que existe): " << hasNeg << endl;
+    cout << endl;
+
+    cout << "Atividade 7" << endl;
+    cout << endl;
+
+    int tam1;
+    cout << "Digite o tamanho do vetor: ";
+    cin >> tam1;
+
+    int v[tam1];
+    for(int i = 0; i < tam1; i++) {
+        cout << "Digite NUMEROS INTEIROS: ";
+        cin >> v[i];
+    }
+
+    cout << "Vetor original: ";
+    for(int i = 0; i < tam1; i++)
+        cout << v[i] << " ";
+    cout << endl;
+
+    cout << "Invertendo vetor" << endl;
+    inverte(v, tam1); //Inverter vetor
+    
+    cout << "Vetor invertido: ";
+    for(int i = 0; i < tam1; i++)
+        cout << v[i] << " ";
+    cout << endl;
 
     return 0;
 }
