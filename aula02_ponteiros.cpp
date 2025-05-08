@@ -2,11 +2,19 @@
 
 using namespace std;
 
+//Atividade 4
 void troca(int *a, int *b)
 {
     int aux = *a;
     *a = *b;
     *b = aux;
+}
+
+//Atividade 5
+void divisao(int num, int div, int *q, int *r)
+{
+    *q = num / div; //Armazena o quociente no endereco apontado por 'q'
+    *r = num % div; //Armazena o resto no endereco apontado por 'r'
 }
 
 int main()
@@ -200,6 +208,25 @@ int main()
 
     cout << "Novo valor do primeiro numero: " << numero1 << endl;
     cout << "Novo valor do segundo numero: " << numero2 << endl;
+    cout << endl;
+    
+    cout << "Atividade 5" << endl;
+    cout << endl;
+
+    int num, div, quociente, resto;
+
+    quociente = resto = 0;
+    cout << "Digite o numerador: ";
+    cin >> num;
+    cout << "Digite o divisor: ";
+    cin >> div;
+
+    cout << "Calculando a divisao" << endl;
+    divisao(num, div, &quociente, &resto);
+    cout << endl;
+
+    cout << "Resultado do quociente: " << quociente << endl;
+    cout << "Resultado do resto: " << resto << endl;
 
     return 0;
 }
