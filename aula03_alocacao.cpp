@@ -223,6 +223,43 @@ int main()
     delete [] vetor_a;
 
     cout << endl;
+    cout << "Atividade 5" << endl;
+    cout << endl;
+
+    int ordem;
+    cout << "Digite a ordem da matriz quadrada => ";
+    cin >> ordem;
+    cout << endl;
+
+    cout << "Alocando dinamicamente a matriz" << endl;
+    int **matriz = new int *[ordem];
+    for(int i = 0; i < ordem; i++)
+        matriz[i] = new int [ordem];
+    
+    cout << "Lendo os elementos da matriz e ordem " << ordem << endl;
+    for (int i = 0; i < ordem; i++) {
+        for(int j = 0; j < ordem; j++) {
+            cout << "Elemento [" << i << "] [" << j << "] => ";
+            cin >> matriz[i][j];
+        }
+    }
+    cout << endl;
+
+    cout << "Imprimindo a matriz" << endl;
+    cout << "Matriz informada" << endl;
+    for(int i = 0; i < ordem; i++) {
+        for(int j = 0; j < ordem; j++) {
+            cout << matriz[i][j] << "\t";
+        }
+        cout << endl;
+    }
+    cout << endl;
+
+    cout << "Desalocando a matriz da memoria" << endl;
+    for(int i = 0; i < ordem; i++)
+        delete [] matriz;
+
+    delete [] matriz;
 
     return 0;
 }
