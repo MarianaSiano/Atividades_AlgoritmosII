@@ -16,50 +16,62 @@ float prodEscalar(int n, float x[], float y[])
     return produtoEscalar;
 }
 
-int main()
+//Atividade 3
+int* indicesPares(int vet[], int n)
 {
-    //Atividade 1
-    // cout << "Atividade 1" << endl;
-    // cout << endl;
-
-    // int n;
-    // cout << "Digite um numero INTEIRO => ";
-    // cin >> n;
-
-    // cout << endl;
-
-    // cout << "Alocando memoria com o numero desejado" << endl;
-    // cout << endl;
-
-    // int *vetor = new int [n];
-
-    // for(int i = 0; i < n; i++){
-    //     cout << "Digite os valores INTEIROS que deseja calcular a media => ";
-    //     cin >> vetor[i];
-    // }
-
-    // int soma;
-    // soma = 0;
-
-    // cout << "Somando os valores do vetor" << endl;
-    // for(int i = 0; i < n; i++)
-    //     soma += vetor[i];
-    
-    // cout << "Total da soma => " << soma << endl;
-    // cout << endl;
-
-    // int media = 0;
-
-    // media = soma / n;
-
-    // cout << "A media calculada foi de => " << media << endl;
-    // cout << endl;
-
-    // cout << "Desalocando a memoria" << endl;
-    // delete [] vetor;
+    int novoTamanho = (n + 1) / 2;
+    cout << "Alocando dinamicamente um vetor na funcao secundaria" << endl;
+    int *novoVetor = new int [novoTamanho];
     cout << endl;
 
-    //Atividade 2
+    for(int i = 0; i < novoTamanho; i++)
+        novoVetor[i] = vet[2 * i];
+
+    return novoVetor;
+}
+
+int main()
+{
+    cout << "Atividade 1" << endl;
+    cout << endl;
+
+    int n;
+    cout << "Digite um numero INTEIRO => ";
+    cin >> n;
+
+    cout << endl;
+
+    cout << "Alocando memoria com o numero desejado" << endl;
+    cout << endl;
+
+    int *vetor = new int [n];
+
+    for(int i = 0; i < n; i++){
+        cout << "Digite os valores INTEIROS que deseja calcular a media => ";
+        cin >> vetor[i];
+    }
+
+    int soma;
+    soma = 0;
+
+    cout << "Somando os valores do vetor" << endl;
+    for(int i = 0; i < n; i++)
+        soma += vetor[i];
+    
+    cout << "Total da soma => " << soma << endl;
+    cout << endl;
+
+    int media = 0;
+
+    media = soma / n;
+
+    cout << "A media calculada foi de => " << media << endl;
+    cout << endl;
+
+    cout << "Desalocando a memoria" << endl;
+    delete [] vetor;
+    cout << endl;
+
     cout << "Atividade 2" << endl;
     cout << endl;
 
@@ -104,6 +116,39 @@ int main()
     delete [] vetor_y;
 
     cout << endl;
+
+    cout << "Atividade 3" << endl;
+    cout << endl;
+
+    int tam;
+    cout << "Digite um numero INTEIRO => ";
+    cin >> tam;
+    cout << endl;
+    cout << "Alocando dinamicamente o vetor na funcao principal" << endl;
+    cout << endl;
+
+    int *vet = new int [tam];
+
+    cout << "Preenchendo o vetor" << endl;
+    for(int i = 0; i < tam; i++) {
+        cout << "Digite o vetor com numeros INTEIROS: ";
+        cin >> vet[i];
+    }
+
+    int *vet_pares = indicesPares(vet, tam);
+    cout << endl;
+
+    cout << "Vetor com numeros PARES => ";
+    for(int i = 0; i < (tam + 1) / 2; i++)
+        cout << vet_pares[i] << " ";
+    cout << endl;
+
+    cout << endl;
+    cout << "Desalocando memoria que foi alocada na funcao secundaria" << endl;
+    delete [] vet_pares;
+
+    cout << "Desalocando memoria do vetor da funcao principal" << endl;
+    delete [] vet;
 
     return 0;
 }
