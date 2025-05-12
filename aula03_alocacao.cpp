@@ -30,6 +30,38 @@ int* indicesPares(int vet[], int n)
     return novoVetor;
 }
 
+//Atividade 4
+int *redimensiona(int vet[], int tam, int novoTamanho)
+{
+    //Se o novo tamanho for menor ou igual, retorna o original
+    if(novoTamanho <= tam)
+        return vet;
+
+    //Aloca novo vetor com o novo tamanho
+    cout << "Alocando um novo vetor com novo tamanho" << endl;
+    int *novoVetor = new int [novoTamanho];
+    cout << endl;
+
+    //Copia os elementos do vetor original
+    cout << "Copiando os elementos do vetor original" << endl;
+    for(int i = 0; i < tam; i++)
+        novoVetor[i] = vet[i];
+    cout << endl;
+
+    //Preenche as posições adicionais com zero
+    cout << "Preenchendo o resto do novo vetor com zero" << endl;
+    for(int i = tam; i < novoTamanho; i++)
+        novoVetor[i] = 0;
+    cout << endl;
+
+    //Desaloca o vetor original se for diferente do novo
+    cout << "Desalocando o vetor original caso ele seja diferente" << endl;
+    if(vet != novoVetor)
+        delete [] vet;
+
+    return novoVetor;
+}
+
 int main()
 {
     cout << "Atividade 1" << endl;
@@ -149,6 +181,48 @@ int main()
 
     cout << "Desalocando memoria do vetor da funcao principal" << endl;
     delete [] vet;
+
+    cout << endl;
+    cout << "Atividade 4" << endl;
+    cout << endl;
+
+    int tamanhoInicial, tamanhoNovo;
+
+    cout << "Digite o tamanho inicial do vetor => ";
+    cin >> tamanhoInicial;
+    cout << endl;
+
+    //Alocacao do vetor original
+    int *vetor_a = new int [tamanhoInicial];
+
+    cout << "Lendo os valores" << endl;
+    for(int i = 0; i < tamanhoInicial; i++) {
+        cout << "Digite numero INTEIRO => ";
+        cin >> vetor_a[i];
+    }
+    cout << endl;
+
+    cout << "Digite o novo tamanho para redimensionamento => ";
+    cin >> tamanhoNovo;
+    cout << endl;
+
+    cout << "Redimensionando o vetor => " << endl;
+    cout << endl;
+
+    vetor_a = redimensiona(vetor_a, tamanhoInicial, tamanhoNovo);
+    cout << endl;
+
+    cout << "Vetor redimensionado";
+    int tamanhoFinal = (tamanhoNovo > tamanhoInicial) ? tamanhoNovo : tamanhoInicial;
+    for(int i = 0; i < tamanhoFinal; i++)
+        cout << vetor_a[i] << " ";
+    cout << endl;
+
+    cout << endl;
+    cout << "Desalocando memoria" << endl;
+    delete [] vetor_a;
+
+    cout << endl;
 
     return 0;
 }
