@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-#include <iomanip> //Para precisao decimal
+#include <iomanip> //Para precisao decimal e formatacao da tabela
 
 using namespace std;
 
@@ -247,6 +247,50 @@ void calcularAproximacaoE()
     cout << "Numero de termos utilizados => " << (int)(1.0 / x) + 2 << endl;
 }
 
+void imprimirTabelaNumeros()
+{
+    int n;
+    cout << "Digite a quantidade de numeros INTEIROS => ";
+    cin >> n;
+
+    if(n <= 0) {
+        cout << "A quantidade deve ser um numero positivo e diferente de zero!" << endl;
+        return;
+    }
+
+    int numeros[n];
+
+    //Ler os n numeros
+    for(int i = 0; i < n; i++) {
+        cout << "Digite o numero " << (i + 1) << " => ";
+        cin >> numeros[i];
+
+        if(numeros[i] <= 0) {
+            cout << "Apenas numeros POSITIVOS sao permitidos!" << endl;
+            i--; //Repetir essa iteracao
+        }
+    }
+
+    //Imprimir cabealho da tabela
+    cout << "\n=====================================================" << endl;
+    cout << "| Numero | Quadrado | Raiz Quadrada |   Fatorial   |" << endl;
+    cout << "=====================================================" << endl;
+
+    //Imprimir cada linha da tabela
+    for(int i = 0; i < n; i++) {
+        int num = numeros[i];
+        int quadrado = num * num;
+        double raiz = sqrt(num);
+        unsigned long long fat = fatorial(num); //Usando a funcao fatorial
+
+        cout << "| " << setw(6) << num << " | " 
+            << setw(8) << quadrado << " | "
+            << setw(13) << fixed << setprecision(6) << raiz << " | "
+            << setw(12) << fat << " |" << endl;
+    }
+    cout << "=====================================================" << endl;
+}
+
 int main()
 {
     int opcao;
@@ -264,6 +308,7 @@ int main()
         cout << "9. Calcular Soma" << endl;
         cout << "10. Calcular Aproximacao de Pi" << endl;
         cout << "11. Calcular Aproximacao de E" << endl;
+        cout << "12. Imprimir Tabela de Numeros" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -378,6 +423,11 @@ int main()
 
             case 11: {
                 calcularAproximacaoE();
+                break;
+            }
+
+            case 12: {
+                imprimirTabelaNumeros();
                 break;
             }
 
