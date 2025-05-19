@@ -5,6 +5,7 @@ using namespace std;
 
 int main()
 {
+    cout << "============= EXEMPLOS =============" << endl;
     cout << "Exemplo 1" << endl;
     cout << endl;
     int vet[3] = {10, 20, 30};
@@ -19,5 +20,9 @@ int main()
     cout << vet[0] << endl;
     cout << vet[1] << endl;
     cout << vet[2] << endl;
+    cout << endl;
+
+    cout << "============= ATIVIDADES =============" << endl;
+    cout << "Atividade 1" << endl;
     cout << endl;
 }
