@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 
 using namespace std;
 
@@ -145,6 +146,31 @@ void operacoesLogicas()
     cout << "Z: " << (Z ? "Verdadeiro" : "Falso") << endl;
 }
 
+double calculaSoma(int n, double x)
+{
+    double S;
+    S = 0.0;
+
+    for(int i = 0; i <= n; i++)
+        S+= pow(x, i);
+    return S;
+}
+
+void calcularSomaSerie()
+{
+    int n;
+    double x;
+
+    cout << "Digite um numero INTEIRO => ";
+    cin >> n;
+    cout << "Digite um numero REAL => ";
+    cin >> x;
+
+    double resultado = calculaSoma(n, x);
+    cout << "\nResultado da soma S (de i = 0 até " << n << ") de x ^ i" << endl;
+    cout << "S = " << resultado << endl;
+}
+
 int main()
 {
     int opcao;
@@ -159,6 +185,7 @@ int main()
         cout << "6. Encontrar Maior Valor Par" << endl;
         cout << "7. Ler Valores Negativos" << endl;
         cout << "8. Operacoes Logicas com X, Y, Z" << endl;
+        cout << "9. Calcular Soma" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -258,6 +285,11 @@ int main()
 
             case 8: {
                 operacoesLogicas();
+                break;
+            }
+
+            case 9: {
+                calcularSomaSerie();
                 break;
             }
 
