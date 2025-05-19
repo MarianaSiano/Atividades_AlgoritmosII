@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <iomanip> //Para precisao decimal
 
 using namespace std;
 
@@ -204,6 +205,48 @@ void calcularAproximacaoPi()
     cout << "Diferenca => " << abs(M_PI - pi_aproximado) << endl;
 }
 
+double calculaE(double tolerancia)
+{
+    double e = 1.0; //Primeiro termo da séria (1/0!)
+    double termoAnterior = 1.0; //1/0!
+    int k = 1;
+
+    while(true) {
+        double fat = fatorial(k);
+        double termoAtual = 1.0 / fat;
+        e += termoAtual;
+
+        //Verifica criterio de parede
+        if(abs(termoAnterior - termoAtual) < tolerancia)
+            break;
+
+        termoAnterior = termoAtual;
+        k++;
+    }
+    return e;
+}
+
+void calcularAproximacaoE()
+{
+    double x;
+    cout << "Digite a tolerancia (valor real positivo pequeno, ex.: 0.0001) => ";
+    cin >> x;
+
+    if(x <= 0) {
+        cout << "A tolerancia deve ser um valor positivo!" << endl;
+        return;
+    }
+
+    double e_aproximado = calculaE(x);
+
+    cout << fixed << setprecision(10); //Define 10 casas decimais
+    cout << "\n Aproximacao de 'e' com tolerancia " << x << " => " << endl;
+    cout << "Valor calculado => " << e_aproximado << endl;
+    cout << "Valor real de 'e => " << exp(1.0) << endl;
+    cout << "Diferenca => " << abs(exp(1.0) - e_aproximado) << endl;
+    cout << "Numero de termos utilizados => " << (int)(1.0 / x) + 2 << endl;
+}
+
 int main()
 {
     int opcao;
@@ -220,6 +263,7 @@ int main()
         cout << "8. Operacoes Logicas com X, Y, Z" << endl;
         cout << "9. Calcular Soma" << endl;
         cout << "10. Calcular Aproximacao de Pi" << endl;
+        cout << "11. Calcular Aproximacao de E" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -329,6 +373,11 @@ int main()
 
             case 10: {
                 calcularAproximacaoPi();
+                break;
+            }
+
+            case 11: {
+                calcularAproximacaoE();
                 break;
             }
 
