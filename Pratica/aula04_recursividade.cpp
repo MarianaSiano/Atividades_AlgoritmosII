@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -64,6 +65,15 @@ float harmonico(int n)
         return 1.0;
     else
         return 1.0 / n + harmonico(n - 1);
+}
+
+//Atividade 7
+float soma(float x, int n)
+{
+    if(n == 1)
+        return x; //Termo inicial: x ^ 1 / 1
+    else
+        return pow(-1, n - 1) * pow(x, n) / n + soma(x, n - 1);
 }
 
 int main ()
@@ -155,6 +165,23 @@ int main ()
 
     cout << "H(" << valores << ") = " << harmonico(valores);
     cout << endl;
+
+    cout << "================== Atividade 7 ==================" << endl;
+    cout << endl;
+
+    float x_2;
+    int n_2;
+
+    cout << "Digite um numero COM CASA DECIMAL => ";
+    cin >> x_2;
+    cout << "Digite um numero INTEIRO => ";
+    cin >> n_2;
+    cout << endl;
+
+    cout << "Resolvendo a soma" << endl;
+    float resultadoSoma;
+    resultadoSoma = soma(x_2, n_2);
+    cout << "Soma(" << x_2 << ", " << n_2 << ") = " << soma(x_2, n_2) << endl;
 
     return 0;
 }
