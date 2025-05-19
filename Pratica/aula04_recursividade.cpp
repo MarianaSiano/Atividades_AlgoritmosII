@@ -78,110 +78,107 @@ float soma(float x, int n)
 
 int main ()
 {
-    cout << "================== Atividade 1 ==================" << endl;
-    cout << endl;
+    int opcao;
 
-    int numero;
-    cout << "Digite um numero INTEIRO => ";
-    cin >> numero;
+    do {
+            cout << "\n============== MENU DE ATIVIDADES ==============" << endl;
+            cout << "1. Calcular Fatorial" << endl;
+            cout << "2. Imprimir Intervalo" << endl;
+            cout << "3. Imprimir Decrescente" << endl;
+            cout << "4. Verificar se eh Primo" << endl;
+            cout << "5. Calcular Modulo (x mod y)" << endl;
+            cout << "6. Calcular Numero Harmonico" << endl;
+            cout << "7. Calcular Somatorio com x e n" << endl;
+            cout << "0. Sair" << endl;
+            cout << "Escolha uma opcao => ";
+            cin >> opcao;
+            cout << endl;
 
-    cout << "Calculando o faltorial de " << numero << endl;
-    unsigned long long resultadoFatorial = 1;
-    resultadoFatorial = fatorial(numero);
-    cout << endl;
-    cout << "Resultado do calculo desse fatorial => " << resultadoFatorial << endl;
-    cout << endl;
+            switch (opcao){
+            case 1: {
+                int numero;
+                cout << "Digite um numero INTEIRO => ";
+                cin >> numero;
+                cout << "Fatorial de " << numero << " = " << fatorial(numero) << endl;
+                break;
+            }
 
-    cout << "================== Atividade 2 ==================" << endl;
-    cout << endl;
+            case 2: {
+                int inicio, final, incremento;
+                cout << "Digite o inicio do intervalo => ";
+                cin >> inicio;
+                cout << "Digite o funal do intervalo => ";
+                cin >> final;
+                cout << "Digite o incremento => ";
+                cin >> incremento;
+                imprimeIntervalo(inicio, final, incremento);
+                cout << endl;
+                break;
+            }
 
-    int inicio, final, incremento;
-    cout << "Digite um numero INTEIRO de inicio => ";
-    cin >> inicio;
-    cout << "Digite um numero INTEIRO para o final => ";
-    cin >> final;
-    cout << "Digite o incremente desejado (NUMERO INTEIRO) => ";
-    cin >> incremento;
-    cout << endl;
+            case 3: {
+                int valor;
+                cout << "Digite um numero INTEIRO => ";
+                cin >> valor;
+                cout << "Decrescente => ";
+                imprimeDecrescente(valor);
+                cout << endl;
+                break;
+            }
 
-    cout << "Impriminto em intervalos" << endl;
-    imprimeIntervalo(inicio, final, incremento);
-    cout << endl;
+            case 4: {
+                int num;
+                cout << "Digite um numero INTEIRO => ";
+                cin >> num;
 
-    cout << "================== Atividade 3 ==================" << endl;
-    cout << endl;
+                if(ehPrimo(num))
+                    cout << num << " eh primo!!" << endl;
+                else
+                    cout << num << " nao eh primo!!" << endl;
 
-    int valor;
+                break;
+            }
 
-    cout << "Digite um numero INTEIRO => ";
-    cin >> valor;
-    cout << endl;
+            case 5: {
+                int x, y;
+                cout << "Digite o valor de x => ";
+                cin >> x;
+                cout << "Digite o valor de y => ";
+                cin >> y;
+                cout << x << " modulo " << y << " = " << modulo(x, y) << endl;
+                break;
+            }
 
-    cout << "Imprimindo em decrescente" << endl;
-    imprimeDecrescente(valor);
-    cout << endl;
+            case 6: {
+                int n;
+                cout << "Digite um numero INTEIRO => ";
+                cin >> n;
+                cout << "H(" << n << ") = " << harmonico(n) << endl;
+                break;
+            }
 
-    cout << "================== Atividade 4 ==================" << endl;
-    cout << endl;
+            case 7: {
+                float x;
+                int n;
+                cout << "Digite um numero COM CASA DECIMAL => ";
+                cin >> x;
+                cout << "Digite um numero INTEIRO => ";
+                cin >> n;
+                cout << "Soma (" << x << ", " << n << ") = " << soma(x, n) << endl;
+                break;
+            }
 
-    int num;
-    cout << "Digite um numero INTEIRO => ";
-    cin >> num;
+            case 0: {
+                cout << "Encerrando o programa..." << endl;
+                break;
+            }
+            
+            default:
+                cout << "Opcao invalida! Tente novamente." << endl;
+        }
 
-    cout << "Vendo se eh primo" << endl;
-    if(ehPrimo(num))
-        cout << num << " eh primo!" << endl;
-    else
-        cout << num << " nao eh primo!" << endl;
-    
-    cout << endl;
-
-    cout << "================== Atividade 5 ==================" << endl;
-    cout << endl;
-
-    int x, y;
-    cout << "Digite o numero de x => ";
-    cin >> x;
-    cout << "Digite o numero de y => ";
-    cin >> y;
-
-    cout << "Calculando o modulo dos valores de " << x << " e " << y << "!" << endl;
-    int resultadoModulo;
-    resultadoModulo = modulo(x, y);
-
-    cout << "Resultado do Modulo => " << resultadoModulo << endl;
-    cout << endl;
-
-    cout << "================== Atividade 6 ==================" << endl;
-    cout << endl;
-
-    int valores;
-    cout << "Digite um numero INTEIRO => ";
-    cin >> valores;
-
-    cout << "Fazendo o harmonico" << endl;
-    float resultadoHarmonico;
-    resultadoHarmonico = harmonico(valores);
-
-    cout << "H(" << valores << ") = " << harmonico(valores);
-    cout << endl;
-
-    cout << "================== Atividade 7 ==================" << endl;
-    cout << endl;
-
-    float x_2;
-    int n_2;
-
-    cout << "Digite um numero COM CASA DECIMAL => ";
-    cin >> x_2;
-    cout << "Digite um numero INTEIRO => ";
-    cin >> n_2;
-    cout << endl;
-
-    cout << "Resolvendo a soma" << endl;
-    float resultadoSoma;
-    resultadoSoma = soma(x_2, n_2);
-    cout << "Soma(" << x_2 << ", " << n_2 << ") = " << soma(x_2, n_2) << endl;
+        cout << "\n-----------------------------------------------\n";
+    } while(opcao != 0);
 
     return 0;
 }
