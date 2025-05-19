@@ -73,16 +73,14 @@ bool ehPrimo(int n)
     return true; //Se não encontrou divisores, é primo
 }
 
-//Atividade 7
 unsigned long long fatorial(int n)
 {
-    if(n == 1) 
+    if(n <= 1) 
         return 1; //Fatorial de 1 é 1
 
     return n * fatorial(n - 1); //Chamada recursiva
 }
 
-//Atividade 12
 float maiorValorPar(int n, float vetor[])
 {
     float maior = 0.0;
@@ -95,151 +93,144 @@ float maiorValorPar(int n, float vetor[])
     return maior;
 }
 
-//Atividade 13
-void lerNegativos(int n, float vetor[])
+void lerNegativos(int n, float vet[])
 {
-    for(int i = 0; i < n; i++) {
-        if(vetor[i] < 0) {
-            cout << "Valor negativo: " << vetor[i] << endl;
+    int i;
+    float valor;
+
+    i = 0;
+
+    while(i < n) {
+        cout << "Digite um valor negativo => ";
+        cin >> valor;
+
+        if(valor < 0) {
+            vet[i] = valor;
+            i++;
         }
+        else
+            cout << "Valor nao inserido. Apenas numeros negativos sao permitidos!" << endl;
     }
 }
 
 int main()
 {
-    cout << "Ativide 1 - Parte 1" <<endl;
-    cout << endl;
+    int opcao;
 
-    float media = 0.0;
-    int tamanho = 0;
+    do {
+        cout << "\n================ MENU ================" << endl;
+        cout << "1. Calcular Media Sem Vetor" << endl;
+        cout << "2. Calcular Media Com Vetor" << endl;
+        cout << "3. Procurar Caractere na String" << endl;
+        cout << "4. Verificar se o Numero eh Primo" << endl;
+        cout << "5. Calcular Fatorial" << endl;
+        cout << "6. Encontrar Maior Valor Par" << endl;
+        cout << "7. Ler Valores Negativos" << endl;
+        cout << "0. Sair" << endl;
+        cout << "Escolha uma opcao => ";
+        cin >> opcao;
 
-    cout << "Digite um numero SEM VIRGULA, para a quantidade de numeros: " << endl;
-    cin >> tamanho;
+        switch(opcao) {
+            case 1: {
+                int tamanho;
+                cout << "Digite a quantidade de numeros => ";
+                cin >> tamanho;
+                float media = calculaMedia(tamanho);
+                cout << "Media => " << media << endl;
+                break;
+            }
 
-    media = calculaMedia(tamanho);
-    cout << "Tamanho: " << tamanho << endl;
-    cout << "Media: " << media << endl;
-    cout << endl;
+            case 2: {
+                int tam;
+                cout << "Digite a quantidade de numeros => ";
+                cin >> tam;
+                float vetor[tam];
 
-    cout << "Parte 2" << endl;
-    cout << endl;
+                for(int i = 0; i < tam; i++) {
+                    cout << "Digite o valor => ";
+                    cin >> vetor[i];
+                }
+                float media = vetorCalculaMedia(tam, vetor);
+                cout << "Media => " << media << endl;
+                break;
+            }
 
-    float vetor[tamanho];
+            case 3: {
+                string str;
+                char ch;
+                cout << "Digite uma String => ";
+                cin.ignore();
+                getline(cin, str);
+                cout << "Digite o caractere => ";
+                cin >> ch;
+                int pos = procuraChar(str, ch);
 
-    for(int i = 0; i < tamanho; i++) {
-        cout << "Digite o valor (parte 2): " << endl;
-        cin >> vetor[i];
-    }
+                if(pos != -1)
+                    cout << "Caractere encontrado na posicao => " << pos << endl;
+                else
+                    cout << "Caractere NAO encontrado!" << endl;
+                break;
+            }
 
-    cout << "Numeros digitados: ";
-    for(int i = 0; i < tamanho; i++)
-        cout << " " <<vetor[i] << " ";
-    cout << endl;
+            case 4: {
+                int numero;
+                cout << "Digite um numero => ";
+                cin >> numero;
 
-    float mediaVet = vetorCalculaMedia(tamanho, vetor);
-    cout << "Tamanho: " << tamanho << endl;
-    cout << "Media: " << media << endl;
-    cout << endl;
+                if(ehPrimo(numero))
+                    cout << numero << " eh primo!" << endl;
+                else
+                    cout << numero << " NAO eh primo!" << endl;
+                break;
+            }
 
-    cout << "Atividade 4" << endl;
-    cout << endl;
+            case 5: {
+                int numero;
+                cout << "Digite um numero para calcular o fatorial => ";
+                cin >> numero;
 
-    string str;
-    char ch;
+                unsigned long long fat = fatorial(numero);
+                cout << "Fatorial de " << numero << " eh => " << fat << endl;
+                break;
+            }
 
-    cout << "Digite uma string: " << endl;
-    cin.ignore(); //Limpa o buffer de entrada
-    getline(cin, str);
+            case 6: {
+                int n;
+                cout << "Digite a quantidade de numeros => ";
+                cin >> n;
+                float vetor[n];
 
-    cout << "Digite um caractere: " << endl;
-    cin >> ch;
-    cin.ignore(); //Limpa o buffer de entrada
+                for(int i = 0; i < n; i++) {
+                    cout << "Digite o valor => ";
+                    cin >> vetor[i];
+                }
+                float maior = maiorValorPar(n, vetor);
+                cout << "Maior valor par => " << maior << endl;
+                break;
+            }
 
-    int posicao = 0;
-    posicao = procuraChar(str, ch);
+            case 7: {
+                int n;
+                cout << "Digite a quantidade de numeros => ";
+                cin >> n;
+                float vetor[n];
+                lerNegativos(n, vetor);
 
-    if(posicao != -1)
-        cout << "O caractere " << ch << " foi encontrado na posicao: " << posicao << endl;
-    else
-        cout << "O caractere " << ch << " NAO foi encontrado na string." << endl;
-    cout << endl;
+                cout << "Vetor preenchido com valores negativos => ";
+                for(int i = 0; i < n; i++)
+                    cout << vetor[i] << " ";
+                cout << endl;
+                break;
+            }
 
-    cout << endl;
-    cout << "Atividade 5" << endl;
-    cout << endl;
+            case 0:
+                cout << "Saindo do programa..." << endl;
+                break;
 
-    int numero;
-    numero = 0;
-
-    cout << "Digite um numero: " << endl;
-    cin >> numero;
-    
-    if(ehPrimo(numero))
-        cout << "O numero " << numero << " eh primo." << endl;
-    else
-        cout << "O numero " << numero << " NAO eh primo." << endl;
-
-    cout << endl;
-    cout << "Atividade 7" << endl;
-    cout << endl;
-
-    int numFatorial;
-    numFatorial = 1;
-
-    cout << "Digite um numero para calcular o fatorial: " << endl;
-    cin >> numFatorial;
-
-    unsigned long long resultadoFatorial = fatorial(numFatorial);
-    cout << "O fatorial de " << numFatorial << " eh: " << resultadoFatorial << endl;
-    cout << endl;
-
-    cout << "Atividade 12" << endl;
-    cout << endl;
-
-    int n;
-    n = 0;
-
-    cout << "Digite um numero SEM VIRGULA, para a quantidade de numeros: " << endl;
-    cin >> n;
-
-    float vet[n];
-    for(int i = 0; i < n; i++) {
-        cout << "Digite o valor: " << endl;
-        cin >> vet[i];
-    }
-    cout << endl;
-
-    cout << "Numeros digitados: ";
-    for(int i = 0; i < n; i++)
-        cout << " " << vet[i];
-    cout << endl;
-
-    float maiorPar = maiorValorPar(n, vet);
-    cout << "O maior valor par eh: " << maiorPar << endl;
-    cout << endl;
-
-    cout << "Atividade 13" << endl;
-    cout << endl;
-
-    int tam;
-    tam = 0;
-
-    cout << "Digite um numero SEM VIRGULA, para a quantidade de numeros: " << endl;
-    cin >> tam;
-
-    float vet[tam];
-    for(int i = 0; i < tam; i++) {
-        cout << "Digite o valor: " << endl;
-        cin >> vet[i];
-    }
-    cout << endl;
-
-    cout << "Numeros digitados: ";
-    for(int i = 0; i < tam; i++)
-        cout << " " << vet[i];
-    cout << endl;
-
-    lerNegativos(tam, vet);
+            default:
+                cout << "Opcao invalida. Tente novamente." << endl;
+        }
+    } while (opcao != 0);    
 
     return 0;
 }
