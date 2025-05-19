@@ -46,49 +46,60 @@ bool ehPrimo(int n)
     return verificaPrimo(n, n - 1); //Começa testando a partir de n - 1
 }
 
+//Atividade 5
+int modulo(int x, int y)
+{
+    if(x == y)
+        return 0;
+    else if(x < y)
+        return x;
+    else
+        return modulo(x - y, y);
+}
+
 int main ()
 {
-    // cout << "================== Atividade 1 ==================" << endl;
-    // cout << endl;
+    cout << "================== Atividade 1 ==================" << endl;
+    cout << endl;
 
-    // int numero;
-    // cout << "Digite um numero INTEIRO => ";
-    // cin >> numero;
+    int numero;
+    cout << "Digite um numero INTEIRO => ";
+    cin >> numero;
 
-    // cout << "Calculando o faltorial de " << numero << endl;
-    // unsigned long long resultadoFatorial = 1;
-    // resultadoFatorial = fatorial(numero);
-    // cout << endl;
-    // cout << "Resultado do calculo desse fatorial => " << resultadoFatorial << endl;
-    // cout << endl;
+    cout << "Calculando o faltorial de " << numero << endl;
+    unsigned long long resultadoFatorial = 1;
+    resultadoFatorial = fatorial(numero);
+    cout << endl;
+    cout << "Resultado do calculo desse fatorial => " << resultadoFatorial << endl;
+    cout << endl;
 
-    // cout << "================== Atividade 2 ==================" << endl;
-    // cout << endl;
+    cout << "================== Atividade 2 ==================" << endl;
+    cout << endl;
 
-    // int inicio, final, incremento;
-    // cout << "Digite um numero INTEIRO de inicio => ";
-    // cin >> inicio;
-    // cout << "Digite um numero INTEIRO para o final => ";
-    // cin >> final;
-    // cout << "Digite o incremente desejado (NUMERO INTEIRO) => ";
-    // cin >> incremento;
-    // cout << endl;
+    int inicio, final, incremento;
+    cout << "Digite um numero INTEIRO de inicio => ";
+    cin >> inicio;
+    cout << "Digite um numero INTEIRO para o final => ";
+    cin >> final;
+    cout << "Digite o incremente desejado (NUMERO INTEIRO) => ";
+    cin >> incremento;
+    cout << endl;
 
-    // cout << "Impriminto em intervalos" << endl;
-    // imprimeIntervalo(inicio, final, incremento);
-    // cout << endl;
+    cout << "Impriminto em intervalos" << endl;
+    imprimeIntervalo(inicio, final, incremento);
+    cout << endl;
 
-    // cout << "================== Atividade 3 ==================" << endl;
-    // cout << endl;
+    cout << "================== Atividade 3 ==================" << endl;
+    cout << endl;
 
-    // int valor;
+    int valor;
 
-    // cout << "Digite um numero INTEIRO => ";
-    // cin >> valor;
-    // cout << endl;
+    cout << "Digite um numero INTEIRO => ";
+    cin >> valor;
+    cout << endl;
 
-    // cout << "Imprimindo em decrescente" << endl;
-    // imprimeDecrescente(valor);
+    cout << "Imprimindo em decrescente" << endl;
+    imprimeDecrescente(valor);
     cout << endl;
 
     cout << "================== Atividade 4 ==================" << endl;
@@ -104,6 +115,22 @@ int main ()
     else
         cout << num << " nao eh primo!" << endl;
     
+    cout << endl;
+
+    cout << "================== Atividade 5 ==================" << endl;
+    cout << endl;
+
+    int x, y;
+    cout << "Digite o numero de x => ";
+    cin >> x;
+    cout << "Digite o numero de y => ";
+    cin >> y;
+
+    cout << "Calculando o modulo dos valores de " << x << " e " << y << "!" << endl;
+    int resultadoModulo;
+    resultadoModulo = modulo(x, y);
+
+    cout << "Resultado do Modulo => " << resultadoModulo << endl;
     cout << endl;
 
     return 0;
