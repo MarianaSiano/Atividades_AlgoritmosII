@@ -57,6 +57,15 @@ int modulo(int x, int y)
         return modulo(x - y, y);
 }
 
+//Atividade 6
+float harmonico(int n)
+{
+    if(n == 1)
+        return 1.0;
+    else
+        return 1.0 / n + harmonico(n - 1);
+}
+
 int main ()
 {
     cout << "================== Atividade 1 ==================" << endl;
@@ -131,6 +140,20 @@ int main ()
     resultadoModulo = modulo(x, y);
 
     cout << "Resultado do Modulo => " << resultadoModulo << endl;
+    cout << endl;
+
+    cout << "================== Atividade 6 ==================" << endl;
+    cout << endl;
+
+    int valores;
+    cout << "Digite um numero INTEIRO => ";
+    cin >> valores;
+
+    cout << "Fazendo o harmonico" << endl;
+    float resultadoHarmonico;
+    resultadoHarmonico = harmonico(valores);
+
+    cout << "H(" << valores << ") = " << harmonico(valores);
     cout << endl;
 
     return 0;
