@@ -171,6 +171,39 @@ void calcularSomaSerie()
     cout << "S = " << resultado << endl;
 }
 
+double calculaPiLeibniz (int n)
+{
+    double pi = 0.0;
+    int sinal = 1;
+
+    for(int i = 0; i < n; i++) {
+        double termo = 1.0 / (2 * i + 1);
+        pi += sinal * termo;
+        sinal *= -1; //Atualiza o sinal para o proximo termo
+    }
+    return 4 * pi;
+}
+
+void calcularAproximacaoPi()
+{
+    int n;
+
+    cout << "Digite o numero de termos para calcular pi (n > 0) => ";
+    cin >> n;
+
+    if(n <= 0) {
+        cout << "Numero de termos deve ser positico!" << endl;
+        return;
+    }
+
+    double pi_aproximado = calculaPiLeibniz(n);
+
+    cout << "\nAproximacao de pi com " << n << " termos" << endl;
+    cout << "Valor calculado => " << pi_aproximado << endl;
+    cout << "Valor real de pi => " << M_PI << endl;
+    cout << "Diferenca => " << abs(M_PI - pi_aproximado) << endl;
+}
+
 int main()
 {
     int opcao;
@@ -186,6 +219,7 @@ int main()
         cout << "7. Ler Valores Negativos" << endl;
         cout << "8. Operacoes Logicas com X, Y, Z" << endl;
         cout << "9. Calcular Soma" << endl;
+        cout << "10. Calcular Aproximacao de Pi" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -290,6 +324,11 @@ int main()
 
             case 9: {
                 calcularSomaSerie();
+                break;
+            }
+
+            case 10: {
+                calcularAproximacaoPi();
                 break;
             }
 
