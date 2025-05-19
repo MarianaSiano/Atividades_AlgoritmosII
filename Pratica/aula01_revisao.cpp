@@ -113,6 +113,38 @@ void lerNegativos(int n, float vet[])
     }
 }
 
+void operacoesLogicas()
+{
+    bool X, Y, Z;
+    char entrada;
+    
+    cout << "Digite o valor logico de X (V/v para verdadeiro, F/f para falso): ";
+    cin >> entrada;
+    X = (toupper(entrada) == 'V');
+    
+    cout << "Digite o valor logico de Y (V/v para verdadeiro, F/f para falso): ";
+    cin >> entrada;
+    Y = (toupper(entrada) == 'V');
+    
+    cout << "Digite o valor logico de Z (V/v para verdadeiro, F/f para falso): ";
+    cin >> entrada;
+    Z = (toupper(entrada) == 'V');
+    
+    //Calcula as operações lógicas
+    bool resultado1 = (X && Y) || (X && !Z);
+    bool resultado2 = (X || Y) && (!X && Z);
+    
+    cout << "\nResultados:" << endl;
+    cout << "1. (X && Y) || (X && !Z) = " << (resultado1 ? "Verdadeiro" : "Falso") << endl;
+    cout << "2. (X || Y) && (!X && Z) = " << (resultado2 ? "Verdadeiro" : "Falso") << endl;
+    
+    //Adicionando explicação para ajudar no entendimento
+    cout << "\nValores inseridos:" << endl;
+    cout << "X: " << (X ? "Verdadeiro" : "Falso") << endl;
+    cout << "Y: " << (Y ? "Verdadeiro" : "Falso") << endl;
+    cout << "Z: " << (Z ? "Verdadeiro" : "Falso") << endl;
+}
+
 int main()
 {
     int opcao;
@@ -126,6 +158,7 @@ int main()
         cout << "5. Calcular Fatorial" << endl;
         cout << "6. Encontrar Maior Valor Par" << endl;
         cout << "7. Ler Valores Negativos" << endl;
+        cout << "8. Operacoes Logicas com X, Y, Z" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -220,6 +253,11 @@ int main()
                 for(int i = 0; i < n; i++)
                     cout << vetor[i] << " ";
                 cout << endl;
+                break;
+            }
+
+            case 8: {
+                operacoesLogicas();
                 break;
             }
 
