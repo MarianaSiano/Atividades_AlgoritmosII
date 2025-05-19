@@ -29,49 +29,81 @@ void imprimeDecrescente(int n)
     imprimeDecrescente(n - 1); //Chamada recursiva com n - 1
 }
 
+//Atividade 4
+bool verificaPrimo(int n, int divisor)
+{
+    if(divisor == 1)
+        return true; //Caso base: nenhum divisor encontrado
+    if(n % divisor == 0)
+        return false; //Encontrou um dividor -> não é primo
+    return verificaPrimo(n, divisor - 1); //Chamada recursiva
+}
+
+bool ehPrimo(int n)
+{
+    if(n <= 1)
+        return true; //0 e 1 não são primos
+    return verificaPrimo(n, n - 1); //Começa testando a partir de n - 1
+}
+
 int main ()
 {
-    cout << "================== Atividade 1 ==================" << endl;
+    // cout << "================== Atividade 1 ==================" << endl;
+    // cout << endl;
+
+    // int numero;
+    // cout << "Digite um numero INTEIRO => ";
+    // cin >> numero;
+
+    // cout << "Calculando o faltorial de " << numero << endl;
+    // unsigned long long resultadoFatorial = 1;
+    // resultadoFatorial = fatorial(numero);
+    // cout << endl;
+    // cout << "Resultado do calculo desse fatorial => " << resultadoFatorial << endl;
+    // cout << endl;
+
+    // cout << "================== Atividade 2 ==================" << endl;
+    // cout << endl;
+
+    // int inicio, final, incremento;
+    // cout << "Digite um numero INTEIRO de inicio => ";
+    // cin >> inicio;
+    // cout << "Digite um numero INTEIRO para o final => ";
+    // cin >> final;
+    // cout << "Digite o incremente desejado (NUMERO INTEIRO) => ";
+    // cin >> incremento;
+    // cout << endl;
+
+    // cout << "Impriminto em intervalos" << endl;
+    // imprimeIntervalo(inicio, final, incremento);
+    // cout << endl;
+
+    // cout << "================== Atividade 3 ==================" << endl;
+    // cout << endl;
+
+    // int valor;
+
+    // cout << "Digite um numero INTEIRO => ";
+    // cin >> valor;
+    // cout << endl;
+
+    // cout << "Imprimindo em decrescente" << endl;
+    // imprimeDecrescente(valor);
     cout << endl;
 
-    int numero;
+    cout << "================== Atividade 4 ==================" << endl;
+    cout << endl;
+
+    int num;
     cout << "Digite um numero INTEIRO => ";
-    cin >> numero;
+    cin >> num;
 
-    cout << "Calculando o faltorial de " << numero << endl;
-    unsigned long long resultadoFatorial = 1;
-    resultadoFatorial = fatorial(numero);
-    cout << endl;
-    cout << "Resultado do calculo desse fatorial => " << resultadoFatorial << endl;
-    cout << endl;
-
-    cout << "================== Atividade 2 ==================" << endl;
-    cout << endl;
-
-    int inicio, final, incremento;
-    cout << "Digite um numero INTEIRO de inicio => ";
-    cin >> inicio;
-    cout << "Digite um numero INTEIRO para o final => ";
-    cin >> final;
-    cout << "Digite o incremente desejado (NUMERO INTEIRO) => ";
-    cin >> incremento;
-    cout << endl;
-
-    cout << "Impriminto em intervalos" << endl;
-    imprimeIntervalo(inicio, final, incremento);
-    cout << endl;
-
-    cout << "================== Atividade 3 ==================" << endl;
-    cout << endl;
-
-    int valor;
-
-    cout << "Digite um numero INTEIRO => ";
-    cin >> valor;
-    cout << endl;
-
-    cout << "Imprimindo em decrescente" << endl;
-    imprimeDecrescente(valor);
+    cout << "Vendo se eh primo" << endl;
+    if(ehPrimo(num))
+        cout << num << " eh primo!" << endl;
+    else
+        cout << num << " nao eh primo!" << endl;
+    
     cout << endl;
 
     return 0;
