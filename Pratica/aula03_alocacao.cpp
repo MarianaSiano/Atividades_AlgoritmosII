@@ -62,5 +62,18 @@ int *redimensiona(int vet[], int tam, int novoTamanho)
 
 int main()
 {
+    int opcao;
+
+    do {
+        cout << "\n========================= MENU DE ATIVIDADES =========================" << endl;
+        cout << "1. Media de Valores de Vetor" << endl;
+        cout << "2. Produto Escalar de Dois Vetores" << endl;
+        cout << "3. Criar Vetor com Elementos de Índice Par" << endl;
+        cout << "4. Redimensionar Vetor" << endl;
+        cout << "5. Matriz Dinâmica" << endl;
+        cout << "0. Sair" << endl;
+        cout << "Escolha uma Opcao => " << endl;
+    } while(opcao != 0);
+
     return 0;
 }
