@@ -50,7 +50,7 @@ int main()
         cout << "1. Ponteiro Simples" << endl;
         cout << "2. Manipulacao de Ponteiros" << endl;
         cout << "3. Soma com Ponteiros" << endl;
-        cout << "4. Troca de Vetores" << endl;
+        cout << "4. Troca de Variaveis" << endl;
         cout << "5. Divisao com Ponteiros" << endl;
         cout << "6. Contar Pares, Impares e Negativos" << endl;
         cout << "7. Inverter Vetor" << endl;
@@ -144,8 +144,10 @@ int main()
 
             case 4: {
                 int numero1, numero2;
-                cout << "Digite dois numeros INTEIROS => ";
-                cin >> numero1 >> numero2;
+                cout << "Digite o primeiro numero INTEIRO => ";
+                cin >> numero1;
+                cout << "Digite o segundo numero INTEIRO => ";
+                cin >> numero2;
 
                 cout << "Antes da troca => " << numero1 << " " << numero2 << endl;
                 troca(&numero1, &numero2);
@@ -190,7 +192,7 @@ int main()
 
                 int v[tam1];
                 for(int i = 0; i < tam1; i++) {
-                    cout << "Digite o elemento => " << i + 1 << " => ";
+                    cout << "Digite o elemento " << i + 1 << " => ";
                     cin >> v[i];
                 }
 
