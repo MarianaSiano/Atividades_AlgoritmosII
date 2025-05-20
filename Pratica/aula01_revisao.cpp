@@ -131,8 +131,7 @@ double calculaPiLeibniz(int n)
     double pi = 0.0;
     int sinal = 1;
 
-    for(int i = 0; i < n; i++)
-    {
+    for(int i = 0; i < n; i++) {
         double termo = 1.0 / (2 * i + 1);
         pi += sinal * termo;
         sinal *= -1; //Atualiza o sinal para o proximo termo
@@ -142,18 +141,17 @@ double calculaPiLeibniz(int n)
 
 double calculaE(double tolerancia)
 {
-    double e = 1.0;             //Primeiro termo da séria (1/0!)
+    double e = 1.0; //Primeiro termo da séria (1/0!)
     double termoAnterior = 1.0; //1/0!
     int k = 1;
 
-    while (true)
-    {
+    while(true) {
         double fat = fatorial(k);
         double termoAtual = 1.0 / fat;
         e += termoAtual;
 
         //Verifica criterio de parede
-        if (abs(termoAnterior - termoAtual) < tolerancia)
+        if(abs(termoAnterior - termoAtual) < tolerancia)
             break;
 
         termoAnterior = termoAtual;
@@ -333,10 +331,8 @@ int main()
             cout << "Digite o numero de termos para calcular pi (n > 0) => ";
             cin >> n;
 
-            if(n <= 0) {
+            if(n <= 0)
                 cout << "Numero de termos deve ser positico!" << endl;
-                return;
-            }
 
             double pi_aproximado = calculaPiLeibniz(n);
 
@@ -352,10 +348,8 @@ int main()
             cout << "Digite a tolerancia (valor real positivo pequeno, ex.: 0.0001) => ";
             cin >> x;
 
-            if(x <= 0) {
+            if(x <= 0)
                 cout << "A tolerancia deve ser um valor positivo!" << endl;
-                return;
-            }
 
             double e_aproximado = calculaE(x);
 
@@ -373,10 +367,8 @@ int main()
             cout << "Digite a quantidade de numeros INTEIROS => ";
             cin >> n;
 
-            if(n <= 0) {
+            if(n <= 0)
                 cout << "A quantidade deve ser um numero positivo e diferente de zero!" << endl;
-                return;
-            }
 
             int numeros[n];
 
