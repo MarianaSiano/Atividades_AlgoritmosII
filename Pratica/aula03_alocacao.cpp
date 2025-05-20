@@ -170,7 +170,45 @@ int main()
                 delete [] vetor;
                 break;
             }
+
+            case 5: {
+                int ordem;
+                cout << "Ordem da matriz quadrada => ";
+                cin >> ordem;
+
+                int **matriz = new int *[ordem];
+                for(int i = 0; i < ordem; i++)
+                    matriz[i] = new int[ordem];
+
+                for(int i = 0; i < ordem; i++) {
+                    for(int j = 0; j < ordem; j++) {
+                        cout << "Elemento [" << i << "][" << j << "] => ";
+                        cin >> matriz[i][j];
+                    }
+                }
+
+                cout << "Matriz" << endl;
+                for(int i = 0; i < ordem; i++) {
+                    for(int j = 0; j < ordem; j++) {
+                        cout << matriz[i][j];
+                    }
+                    cout << endl;
+                }
+
+                for(int i = 0; i < ordem; i++)
+                    delete [] matriz[i];
+                delete [] matriz;
+                break;
+            }
+
+            case 0:
+                cout << "Saindo do programa..." << endl;
+                break;
+
+            default:
+                cout << "Opcao invalida!" << endl;
         }
+
     } while(opcao != 0);
 
     return 0;
