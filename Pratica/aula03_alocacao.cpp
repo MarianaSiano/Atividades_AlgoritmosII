@@ -122,6 +122,28 @@ int main()
                 delete [] y;
                 break;
             }
+
+            case 3: {
+                int tam;
+                cout << "Digite o tamanho do vetor => ";
+                cin >> tam;
+
+                int *vet = new int[tam];
+                for(int i = 0; i < tam; i++) {
+                    cout << "vet[" << i << "] = ";
+                    cin >> vet[i];
+                }
+
+                int *pares = indicesPares(vet, tam);
+                cout << "Vetor com indices pares => ";
+                for(int i = 0; i < (tam + 1) / 2; i++)
+                    cout << pares[i] << " ";
+                cout << endl;
+
+                delete [] pares;
+                delete [] vet;
+                break;
+            }
         }
     } while(opcao != 0);
 
