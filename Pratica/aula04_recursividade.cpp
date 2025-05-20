@@ -3,7 +3,6 @@
 
 using namespace std;
 
-//Atividade 1
 unsigned long long fatorial(int n)
 {
     if(n == 0 || n == 1)
@@ -12,7 +11,6 @@ unsigned long long fatorial(int n)
         return n * fatorial(n - 1); //Chamada recursiva
 }
 
-//Atividade 2
 void imprimeIntervalo(int a, int b, int inc)
 {
     if((inc > 0 && a > b) || (inc < 0 && a < b))
@@ -21,7 +19,6 @@ void imprimeIntervalo(int a, int b, int inc)
     imprimeIntervalo(a + inc, b, inc); //Chamada recursiva
 }
 
-//Atividade 3
 void imprimeDecrescente(int n)
 {
     if(n < 0)
@@ -30,7 +27,6 @@ void imprimeDecrescente(int n)
     imprimeDecrescente(n - 1); //Chamada recursiva com n - 1
 }
 
-//Atividade 4
 bool verificaPrimo(int n, int divisor)
 {
     if(divisor == 1)
@@ -47,7 +43,6 @@ bool ehPrimo(int n)
     return verificaPrimo(n, n - 1); //Começa testando a partir de n - 1
 }
 
-//Atividade 5
 int modulo(int x, int y)
 {
     if(x == y)
@@ -58,7 +53,6 @@ int modulo(int x, int y)
         return modulo(x - y, y);
 }
 
-//Atividade 6
 float harmonico(int n)
 {
     if(n == 1)
@@ -67,7 +61,6 @@ float harmonico(int n)
         return 1.0 / n + harmonico(n - 1);
 }
 
-//Atividade 7
 float soma(float x, int n)
 {
     if(n == 1)
