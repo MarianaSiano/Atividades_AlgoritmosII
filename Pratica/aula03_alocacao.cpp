@@ -15,7 +15,6 @@ float prodEscalar(int n, float x[], float y[])
     return produtoEscalar;
 }
 
-//Atividade 3
 int* indicesPares(int vet[], int n)
 {
     int novoTamanho = (n + 1) / 2;
@@ -60,38 +59,33 @@ int *redimensiona(int vet[], int tam, int novoTamanho)
     return novoVetor;
 }
 
-int main()
-{
+int main() {
     int opcao;
 
     do {
-        cout << "\n========================= MENU DE ATIVIDADES =========================" << endl;
-        cout << "1. Media de Valores de Vetor" << endl;
+        cout << "\n================ MENU DE ATIVIDADES ================" << endl;
+        cout << "1. Media de valores de vetor" << endl;
         cout << "2. Produto Escalar de Dois Vetores" << endl;
-        cout << "3. Criar Vetor com Elementos de Índice Par" << endl;
+        cout << "3. Criar Vetor com Elementos de Indice Par" << endl;
         cout << "4. Redimensionar Vetor" << endl;
-        cout << "5. Matriz Dinâmica" << endl;
+        cout << "5. Matriz Dinamica" << endl;
         cout << "0. Sair" << endl;
-        cout << "Escolha uma Opcao => " << endl;
+        cout << "Escolha uma opcao => ";
+        cin >> opcao;
 
         switch(opcao) {
             case 1: {
-                int n, soma;
-                soma = 0;
-
+                int n, soma = 0;
                 cout << "Digite o tamanho do vetor => ";
                 cin >> n;
-
                 int *vetor = new int[n];
-
                 for(int i = 0; i < n; i++) {
                     cout << "Digite o valor " << i + 1 << " => ";
                     cin >> vetor[i];
                     soma += vetor[i];
                 }
-
                 cout << "Media => " << soma / n << endl;
-                delete [] vetor;
+                delete[] vetor;
                 break;
             }
 
@@ -99,7 +93,6 @@ int main()
                 int tamanho;
                 cout << "Digite o tamanho dos vetores => ";
                 cin >> tamanho;
-
                 float *x = new float[tamanho];
                 float *y = new float[tamanho];
 
@@ -109,7 +102,7 @@ int main()
                     cin >> x[i];
                 }
 
-                cout << "Preecha o vetor Y" << endl;
+                cout << "Preencha o vetor Y" << endl;
                 for(int i = 0; i < tamanho; i++) {
                     cout << "y[" << i << "] = ";
                     cin >> y[i];
@@ -118,8 +111,8 @@ int main()
                 float resultado = prodEscalar(tamanho, x, y);
                 cout << "Produto escalar => " << resultado << endl;
 
-                delete [] x;
-                delete [] y;
+                delete[] x;
+                delete[] y;
                 break;
             }
 
@@ -127,7 +120,6 @@ int main()
                 int tam;
                 cout << "Digite o tamanho do vetor => ";
                 cin >> tam;
-
                 int *vet = new int[tam];
                 for(int i = 0; i < tam; i++) {
                     cout << "vet[" << i << "] = ";
@@ -135,39 +127,37 @@ int main()
                 }
 
                 int *pares = indicesPares(vet, tam);
-                cout << "Vetor com indices pares => ";
+                cout << "Vetor com índices pares => ";
                 for(int i = 0; i < (tam + 1) / 2; i++)
                     cout << pares[i] << " ";
                 cout << endl;
 
-                delete [] pares;
-                delete [] vet;
+                delete[] pares;
+                delete[] vet;
                 break;
             }
 
             case 4: {
-                int tamanhoIncial, tamanhoNovo;
-                cout << "Tamanho Inicial => ";
-                cin >> tamanhoIncial;
-
-                int *vetor = new int[tamanhoIncial];
-                for(int i = 0; i < tamanhoIncial; i++) {
+                int tamanhoInicial, tamanhoNovo;
+                cout << "Tamanho inicial => ";
+                cin >> tamanhoInicial;
+                int *vetor = new int[tamanhoInicial];
+                for(int i = 0; i < tamanhoInicial; i++) {
                     cout << "vetor[" << i << "] = ";
                     cin >> vetor[i];
                 }
 
                 cout << "Novo tamanho => ";
                 cin >> tamanhoNovo;
-                vetor = redimensiona(vetor, tamanhoIncial, tamanhoNovo);
+                vetor = redimensiona(vetor, tamanhoInicial, tamanhoNovo);
 
                 cout << "Vetor redimensionado => ";
-                int limite = (tamanhoNovo > tamanhoIncial) ? tamanhoNovo : tamanhoIncial;
-
+                int limite = (tamanhoNovo > tamanhoInicial) ? tamanhoNovo : tamanhoInicial;
                 for(int i = 0; i < limite; i++)
-                    cout << vetor[i];
+                    cout << vetor[i] << " ";
                 cout << endl;
 
-                delete [] vetor;
+                delete[] vetor;
                 break;
             }
 
@@ -176,28 +166,27 @@ int main()
                 cout << "Ordem da matriz quadrada => ";
                 cin >> ordem;
 
-                int **matriz = new int *[ordem];
+                int **matriz = new int*[ordem];
                 for(int i = 0; i < ordem; i++)
                     matriz[i] = new int[ordem];
 
                 for(int i = 0; i < ordem; i++) {
                     for(int j = 0; j < ordem; j++) {
-                        cout << "Elemento [" << i << "][" << j << "] => ";
+                        cout << "Elemento [" << i << "][" << j << "]: ";
                         cin >> matriz[i][j];
                     }
                 }
 
-                cout << "Matriz" << endl;
+                cout << "Matriz => " << endl;
                 for(int i = 0; i < ordem; i++) {
-                    for(int j = 0; j < ordem; j++) {
-                        cout << matriz[i][j];
-                    }
+                    for(int j = 0; j < ordem; j++)
+                        cout << matriz[i][j] << "\t";
                     cout << endl;
                 }
 
                 for(int i = 0; i < ordem; i++)
-                    delete [] matriz[i];
-                delete [] matriz;
+                    delete[] matriz[i];
+                delete[] matriz;
                 break;
             }
 
