@@ -43,5 +43,45 @@ void inverte(int vet[], int n)
 
 int main()
 {
+    int opcao;
+
+    do {
+        cout << "\n========================== MENU DE ATIVIDADES ==========================" << endl;
+        cout << "1. Ponteiro Simples" << endl;
+        cout << "2. Manipulacao de Ponteiros" << endl;
+        cout << "3. Soma com Ponteiros" << endl;
+        cout << "4. Troca de Vetores" << endl;
+        cout << "5. Divisao com Ponteiros" << endl;
+        cout << "6. Contar Pares, Impares e Negativos" << endl;
+        cout << "7. Inverter Vetor" << endl;
+        cout << "0. Sair" << endl;
+        cout << "Escolha uma opcao => ";
+        cin >> opcao;
+
+        switch(opcao)
+        {
+            case 1: {
+                int *pt = nullptr;
+                cout << "Endereco do ponteiro eh => " << pt << endl;
+
+                int x;
+                cout << "Digite um valor INTEIRO => ";
+                cin >> x;
+
+                pt = &x;
+                cout << "O conteudo do ponteiro eh => " << *pt << endl;
+                cout << "O endereco do ponteiro => " << pt << endl;
+                cout << "O endereco da variavel eh => " << &x << endl;
+
+                *(pt) *= 10;
+                cout << "O conteudo apontado pelo ponteiro => " << *pt << endl;
+
+                *(pt) += 10;
+                cout << "O conteudo novamente do ponteiro => " << *pt << endl;
+                break;
+            }
+        }
+    } while(opcao != 0);
+
     return 0;
 }
