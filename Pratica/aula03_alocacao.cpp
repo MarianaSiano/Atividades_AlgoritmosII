@@ -144,6 +144,32 @@ int main()
                 delete [] vet;
                 break;
             }
+
+            case 4: {
+                int tamanhoIncial, tamanhoNovo;
+                cout << "Tamanho Inicial => ";
+                cin >> tamanhoIncial;
+
+                int *vetor = new int[tamanhoIncial];
+                for(int i = 0; i < tamanhoIncial; i++) {
+                    cout << "vetor[" << i << "] = ";
+                    cin >> vetor[i];
+                }
+
+                cout << "Novo tamanho => ";
+                cin >> tamanhoNovo;
+                vetor = redimensiona(vetor, tamanhoIncial, tamanhoNovo);
+
+                cout << "Vetor redimensionado => ";
+                int limite = (tamanhoNovo > tamanhoIncial) ? tamanhoNovo : tamanhoIncial;
+
+                for(int i = 0; i < limite; i++)
+                    cout << vetor[i];
+                cout << endl;
+
+                delete [] vetor;
+                break;
+            }
         }
     } while(opcao != 0);
 
