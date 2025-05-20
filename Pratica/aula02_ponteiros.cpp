@@ -115,6 +115,43 @@ int main()
                 cout << endl;
                 break;
             }
+
+            case 3: {
+                int x = 23;
+                float y = 9.7;
+
+                int *ponteiro = &x;
+                float *pt2 = &y;
+
+                cout << "Valor do primeiro ponteiro =>  " << *ponteiro << endl;
+                *(ponteiro) += 1;
+                cout << "Novo valor do ponteiro =>  " << *ponteiro << endl;
+
+                cout << "Valor do segundo ponteiro => " << *pt2 << endl;
+
+                float soma = *ponteiro + *pt2;
+                cout << "Soma dos ponteiros => " << soma << endl;
+
+                cout << "Endereco x => " << ponteiro << ", x + 16 bytes => " << ponteiro + 16 << endl;
+
+                float *pt3 = &y;
+                pt3 += 1;
+                cout << "Novo endereco pt3 => " << pt3 << endl;
+                pt3 = pt2;
+                cout << "Endereco resetado pt3 => " << pt3 << endl;
+                break;
+            }
+
+            case 4: {
+                int numero1, numero2;
+                cout << "Digite dois numeros INTEIROS => ";
+                cin >> numero1 >> numero2;
+
+                cout << "Antes da troca => " << numero1 << " " << numero2 << endl;
+                troca(&numero1, &numero2);
+                cout << "Depois da troca => " << numero1 << " " << numero2 << endl;
+                break;
+            }
         }
     } while(opcao != 0);
 
