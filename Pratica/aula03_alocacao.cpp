@@ -94,6 +94,34 @@ int main()
                 delete [] vetor;
                 break;
             }
+
+            case 2: {
+                int tamanho;
+                cout << "Digite o tamanho dos vetores => ";
+                cin >> tamanho;
+
+                float *x = new float[tamanho];
+                float *y = new float[tamanho];
+
+                cout << "Preencha o vetor X" << endl;
+                for(int i = 0; i < tamanho; i++) {
+                    cout << "x[" << i << "] = ";
+                    cin >> x[i];
+                }
+
+                cout << "Preecha o vetor Y" << endl;
+                for(int i = 0; i < tamanho; i++) {
+                    cout << "y[" << i << "] = ";
+                    cin >> y[i];
+                }
+
+                float resultado = prodEscalar(tamanho, x, y);
+                cout << "Produto escalar => " << resultado << endl;
+
+                delete [] x;
+                delete [] y;
+                break;
+            }
         }
     } while(opcao != 0);
 
