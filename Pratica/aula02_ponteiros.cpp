@@ -152,7 +152,71 @@ int main()
                 cout << "Depois da troca => " << numero1 << " " << numero2 << endl;
                 break;
             }
+
+            case 5: {
+                int num, div, quociente = 0, resto = 0;
+                cout << "Digite o numerador => ";
+                cin >> num;
+                cout << "Digite o divisor => ";
+                cin >> div;
+
+                divisao(num, div, &quociente, &resto);
+                cout << "Quociente => " << quociente << ", Resto => " << resto << endl;
+                break;
+            }
+
+            case 6: {
+                int tamanho;
+                cout << "Digite o tamanho do vetor => ";
+                cin >> tamanho;
+
+                int vet[tamanho];
+                for(int i = 0; i < tamanho; i++) {
+                    cout << "Digite o elemento " << i + 1 << " => ";
+                    cin >> vet[i];
+                }
+
+                int par = 0, impar = 0, negativos = 0;
+                bool temNeg = func(tamanho, vet, &par, &impar, &negativos);
+                cout << "Pares => " << par << ", Impares => " << impar << ", Negativos => " << negativos << endl;
+                cout << "Existe numero negativo? " << (temNeg ? "Sim" : "Nao") << endl;
+                break;
+            }
+
+            case 7: {
+                int tam1;
+                cout << "Digite o tamanho do vetor => ";
+                cin >> tam1;
+
+                int v[tam1];
+                for(int i = 0; i < tam1; i++) {
+                    cout << "Digite o elemento => " << i + 1 << " => ";
+                    cin >> v[i];
+                }
+
+                cout << "Vetor original => ";
+                for(int i = 0; i < tam1; i++)
+                    cout << v[i] << " ";
+                cout << endl;
+
+                inverte(v, tam1);
+
+                cout << "Vetor invertido => ";
+                for(int i = 0; i < tam1; i++)
+                    cout << v[i] << " ";
+                cout << endl;
+                break;
+            }
+
+            case 0: {
+                cout << "Encerrando o programa!" << endl;
+                break;
+            }
+
+            default:
+                cout << "Opcao invalida. Tente novamente." << endl;
         }
+
     } while(opcao != 0);
 
     return 0;
