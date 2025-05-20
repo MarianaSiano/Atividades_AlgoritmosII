@@ -80,6 +80,41 @@ int main()
                 cout << "O conteudo novamente do ponteiro => " << *pt << endl;
                 break;
             }
+
+            case 2: {
+                int a = 10, b = 20, c = 30, v[3], *pti, *pti1 = &a, *pti2 = &b;
+
+                cout << "Endereco do ponteiro pti1 => " << *pti1 << endl;
+                cout << "Valor do ponteiro pti2 => " << *pti2 << endl;
+
+                pti1 = pti2 = &c;
+
+                pti = v;
+                *(pti) = 1;
+                *(pti + 1) = 2;
+                *(pti + 2) = 3;
+
+                for(int i = 0; i < 3; i++)
+                    cout << v[i] << " ";
+                cout << endl;
+
+                *pti += 99;
+
+                v[0] = *pti1 + *pti2;
+                v[1] = *pti2;
+                v[2] = *pti;
+
+                *(pti2) += 1;
+                *(pti) = v[1];
+                *(pti) -= 1;
+
+                cout << "a => " << a << ", b => " << b << ", c => " << c << endl;
+                cout << "Vetor final => ";
+                for(int i = 0; i < 3; i++)
+                    cout << v[i] << " ";
+                cout << endl;
+                break;
+            }
         }
     } while(opcao != 0);
 
