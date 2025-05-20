@@ -73,6 +73,28 @@ int main()
         cout << "5. Matriz Dinâmica" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma Opcao => " << endl;
+
+        switch(opcao) {
+            case 1: {
+                int n, soma;
+                soma = 0;
+
+                cout << "Digite o tamanho do vetor => ";
+                cin >> n;
+
+                int *vetor = new int[n];
+
+                for(int i = 0; i < n; i++) {
+                    cout << "Digite o valor " << i + 1 << " => ";
+                    cin >> vetor[i];
+                    soma += vetor[i];
+                }
+
+                cout << "Media => " << soma / n << endl;
+                delete [] vetor;
+                break;
+            }
+        }
     } while(opcao != 0);
 
     return 0;
