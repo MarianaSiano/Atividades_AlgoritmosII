@@ -7,7 +7,8 @@ Algumas atividades de Algoritmo II
 `pacman -Syu` e `pacman -S mingw-w64-ucrt-x86_64-gcc` <br>
 * Atualize as Variáveis de Amiente, ou seja, irá colocar o caminho onde tem o caminho do g++, como, por exemplo, `C:\msys64\ucrt64\bin` <br>
 * E teste a instalação com `g++ --version` <br>
-* Após instalar corretamente o programa acima citado, vai para a pasta desejada: `Teorica` ou `Pratica` <br>
+* Após instalar corretamente o programa acima citado, vai para a pasta desejada: `Teorica` ou `Pratica` com o seguinte comando:<br>
+`cd Pratica` ou `cd Teorica` <br>
 * Apos escolher a pasta, digite o seguite comando na linha de comando: <br>
 `g++ nome_do_programa.cpp -o nome_do_executavel_desejavel`<br>
 * E digite: <br>
