@@ -18,18 +18,15 @@ void divisao(int num, int div, int *q, int *r)
 bool func(int tam, int vet[], int *par, int *impar, int *negativos)
 {
     for(int i = 0; i < tam; i++) {
-        if(vet[i] % 2 == 0) {
-            *(par) += 1;
-        }
+        //Conta negativos (incluindo zero, se for o caso)
+        if(vet[i] < 0)
+            (*negativos)++;
 
-        else if(vet[i] % 2 != 0) {
-            *(impar) += 1;
-        }
-
-        if(vet[i] < 0) {
-            *(negativos) += 1;
-            return true; //Tem numeros negativos
-        }
+        //Conta pares e impares(considera absoluto para numeros megativos)
+        if(vet[i] % 2 == 0)
+            (*par)++;
+        else
+            (*impar)++;
     }
 
     return false; //Nao possui nenhum numero negativo
@@ -178,7 +175,8 @@ int main()
                     cin >> vet[i];
                 }
 
-                int par = 0, impar = 0, negativos = 0;
+                int par, impar, negativos;
+                par = impar = negativos = 0;
                 bool temNeg = func(tamanho, vet, &par, &impar, &negativos);
                 cout << "Pares => " << par << ", Impares => " << impar << ", Negativos => " << negativos << endl;
                 cout << "Existe numero negativo? " << (temNeg ? "Sim" : "Nao") << endl;
