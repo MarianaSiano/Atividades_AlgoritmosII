@@ -133,8 +133,9 @@ int main()
                     return 1;
                 }
 
-                cout << "Sequencia gerada" << endl;
+                cout << "Sequencia gerada => ";
                 int total = sequencia(n, &pares, &impares);
+                cout << endl;
 
                 cout << "Total de numeros gerados => " << total << endl;
                 cout << "Numeros pares => " << pares << endl;
