@@ -86,7 +86,7 @@ int main()
                 //Passo 3: Ler os valores do vetor
                 cout << "Digite os " << tamanho << " elementos do vetor" << endl;
                 for(int i = 0; i < tamanho; i++) {
-                    cout << "Elemento " << i + 1 << " => " << endl;
+                    cout << "Elemento " << i + 1 << " => ";
                     cin >> vetor[i];
                 }
 
