@@ -179,7 +179,15 @@ int main()
                 cout << "Digite o tamanho do vetor em numero INTEIRO => ";
                 cin >> tam;
                 int vetor[tam];
+
+                for(int i = 0; i < tam; i++) {
+                    cout << "Preecha o vetor => ";
+                    cin >> vetor[i];
+                }
+                cout << endl;
+
                 int maior;
+                maior = 0;
 
                 cout << "Vetor original => ";
                 for(int i = 0; i < tam; i++)
