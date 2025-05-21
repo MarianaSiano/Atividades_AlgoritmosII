@@ -235,7 +235,7 @@ int main()
                 int n, val;
 
                 //Passo 1: Leitura do tamanho do vetor (dinamico)
-                cout << "Digite o tamanho do vetor";
+                cout << "Digite o tamanho do vetor => ";
                 cin >> n;
 
                 //Passo 2: Alocação dinâmica do vetor principal
@@ -269,8 +269,6 @@ int main()
                     cout << "]" << endl;
                     delete [] resultado; //Liberação do vetor resultado
                 }
-                else
-                    cout << "Nenhum elemento maior encontrado" << endl;
 
                 //Passo 7: Liberação da memória principal
                 delete [] vet;
