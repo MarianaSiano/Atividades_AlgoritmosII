@@ -1,6 +1,31 @@
 #include <iostream>
 using namespace std;
 
+void func1()
+{
+    int mat[] = {1, 10, 100};
+
+    for(int j = 0; j < 3; j++)
+        cout << *(mat + j) << endl;
+}
+
+void func2()
+{
+    int mat[] = {1, 10, 100};
+
+    for(int j; j < 3; j++)
+        cout << (mat + j) << endl;
+}
+
+void func3()
+{
+    int mat[] = {1, 10, 100};
+    int *p = mat;
+
+    for(int j = 0; j < 3; j++)
+        cout << (*p)++ << endl;
+}
+
 int main()
 {
     int opcao;
@@ -8,6 +33,7 @@ int main()
     do {
         cout << "\n================= MENU =================" << endl;
         cout << "1. Passo a Passo de Ponteiros" << endl;
+        cout << "2. Saber o que Cada Funcao Faz" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -70,6 +96,18 @@ int main()
                 cout << "Valor final da variavel 'val' => " << val << endl;
                 break;
             }
+
+            case 2: {
+                cout << "Programa 1 - Imprimindo valores de array" << endl;
+                func1();
+
+                cout << "Programa 2 - Imprimindo enderecos do array" << endl;
+                func2();
+
+                cout << "Programa 3 - Imprimindo e incrementando valores" << endl;
+                func3();
+            }
+
             case 0:
                 cout << "Encerrando o programa." << endl;
                 break;
