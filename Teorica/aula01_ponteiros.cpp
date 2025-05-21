@@ -26,6 +26,23 @@ void func3()
         cout << (*p)++ << endl;
 }
 
+bool func4(int tam, int vet[], int *par, int *imp, int *neg)
+{
+    for(int i = 0; i < tam; i++) {
+        //Conta negativos (incluindo zero, se for o caso)
+        if(vet[i] < 0)
+            (*neg)++;
+
+        //Conta pares e impares(considera absoluto para numeros megativos)
+        if(vet[i] % 2 == 0)
+            (*par)++;
+        else
+            (*imp)++;
+    }
+
+    return false; //Nao possui nenhum numero negativo
+}
+
 int main()
 {
     int opcao;
@@ -34,6 +51,7 @@ int main()
         cout << "\n================= MENU =================" << endl;
         cout << "1. Passo a Passo de Ponteiros" << endl;
         cout << "2. Saber o que Cada Funcao Faz" << endl;
+        cout << "3. Contar Pares, Impares e Negativos" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -106,6 +124,27 @@ int main()
 
                 cout << "Programa 3 - Imprimindo e incrementando valores" << endl;
                 func3();
+
+                break;
+            }
+
+            case 3: {
+                int tamanho;
+                cout << "Digite o tamanho do vetor => ";
+                cin >> tamanho;
+
+                int vet[tamanho];
+                for(int i = 0; i < tamanho; i++) {
+                    cout << "Digite o elemento " << i + 1 << " => ";
+                    cin >> vet[i];
+                }
+
+                int par, impar, negativos;
+                par = impar = negativos = 0;
+                bool temNeg = func4(tamanho, vet, &par, &impar, &negativos);
+                cout << "Pares => " << par << ", Impares => " << impar << ", Negativos => " << negativos << endl;
+                cout << "Existe numero negativo? " << (temNeg ? "Sim" : "Nao") << endl;
+                break;
             }
 
             case 0:
