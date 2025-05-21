@@ -43,6 +43,32 @@ bool func4(int tam, int vet[], int *par, int *imp, int *neg)
     return false; //Nao possui nenhum numero negativo
 }
 
+void trocaMaior(int vet[], int n, int *m)
+{
+    if(n <= 0)
+        return; //Verifica se o vetor é vazio
+
+    //Inicializa o ponteiro para o maior elemento como o primeiro elemento
+    int *ptrMaior = vet;
+    *m = *vet; //Assume que o primeiro elemento é o maior inicialmente
+
+    //Encontra o maior elemento usando aritmética de ponteiros
+    for(int *ptr = vet + 1; ptr < vet + n; ptr++) {
+        if(*ptr > *ptrMaior) {
+            ptrMaior = ptr;
+            *m = *ptr;
+        }
+    }
+
+    //Realiza a troca usando aritmética de ponteiros
+    if(ptrMaior != vet) {
+        //Só troca se o maior não for o primeiro
+        int temp = *vet;
+        *vet = *ptrMaior;
+        *ptrMaior = temp;
+    }
+}
+
 int main()
 {
     int opcao;
@@ -52,6 +78,7 @@ int main()
         cout << "1. Passo a Passo de Ponteiros" << endl;
         cout << "2. Saber o que Cada Funcao Faz" << endl;
         cout << "3. Contar Pares, Impares e Negativos" << endl;
+        cout << "4. Trocar Maior" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -144,6 +171,29 @@ int main()
                 bool temNeg = func4(tamanho, vet, &par, &impar, &negativos);
                 cout << "Pares => " << par << ", Impares => " << impar << ", Negativos => " << negativos << endl;
                 cout << "Existe numero negativo? " << (temNeg ? "Sim" : "Nao") << endl;
+                break;
+            }
+
+            case 4: {
+                int tam;
+                cout << "Digite o tamanho do vetor em numero INTEIRO => ";
+                cin >> tam;
+                int vetor[tam];
+                int maior;
+
+                cout << "Vetor original => ";
+                for(int i = 0; i < tam; i++)
+                    cout << vetor[i] << " ";
+                cout << endl;
+
+                trocaMaior(vetor, tam, &maior);
+
+                cout << "Vetor modificado => ";
+                for(int i = 0; i < tam; i++)
+                    cout << vetor[i] << " ";
+                cout << endl;
+
+                cout << "Maior elemento => " << maior << endl;
                 break;
             }
 
