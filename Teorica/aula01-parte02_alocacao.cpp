@@ -19,7 +19,7 @@ int main()
                 float soma, media;
                 soma = media = 0.0f;
 
-                //Passo 1: Ler o numero de n de elementos
+                //Ler o numero de n de elementos
                 cout << "Digite o tamanho do vetor => ";
                 cin >> n;
 
@@ -29,17 +29,26 @@ int main()
                     return 1;
                 }
 
-                //Passo 2: Alocar dinamicamente o vetor
+                //Alocar dinamicamente o vetor
                 float *vetor = new float(n);
 
-                //Passo 3: Calcular a media
+                //Ler os valores do vetor
+                cout << "Digite os " << n << " elementos do vetor" << endl;
+                for(int i = 0; i < n; i++) {
+                    cout << "Elemento " << i + 1 << " => ";
+                    cin >> vetor[i];
+                    soma += vetor[i]; //Já acumula a soma para calcular a media
+                }
+                cout << endl;
+
+                //Calcular a media
                 media = soma / n;
 
-                //Passo 5: Imprimir a medica com duas casas decimais
+                //Imprimir a medica com duas casas decimais
                 cout << fixed << setprecision(2);
                 cout << "Media dos valores => " << media << endl;
 
-                //Passo 6: Liberar a memoria alocada
+                //Liberar a memoria alocada
                 delete [] vetor;
 
                 break;
