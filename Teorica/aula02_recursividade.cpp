@@ -14,6 +14,17 @@ int somatorioRecursivo(int n)
         return n + (somatorioRecursivo(n - 1));
 }
 
+int somaDigitos(int val)
+{
+    //Caso base: quando o numero tem apenas um digito
+    if(val < 10)
+        return val;
+    
+    //Passo recursivo: último digito + soma dos demais digitos
+    else
+        return (val % 10) + somaDigitos(val / 10);
+}
+
 int main()
 {
     int opcao;
@@ -21,6 +32,7 @@ int main()
     do {
         cout << "\n================= MENU =================" << endl;
         cout << "1. Somatorio" << endl;
+        cout << "2. Soma de Digitos" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -38,6 +50,21 @@ int main()
 
                 int resultado = somatorioRecursivo(numero);
                 cout << "O somatprio de 1 ate " << numero << " eh => " << resultado << endl;
+                break;
+            }
+
+            case 2: {
+                int numero;
+                cout << "Digite um numero inteiro POSITIVO => ";
+                cin >> numero;
+
+                if(numero < 0) {
+                    cout << "O numero deve ser positivo!" << endl;
+                    return 1;
+                }
+
+                int resultado = somaDigitos(numero);
+                cout << "A soma dos digitos de " << numero << " eh => " << resultado << endl;
                 break;
             }
 
