@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip>  //Para usar fixed e setprecision
+#include <string>
 
 using namespace std;
 
@@ -25,6 +25,21 @@ int somaDigitos(int val)
         return (val % 10) + somaDigitos(val / 10);
 }
 
+string decimalParaBinario(int n)
+{
+    //Caso base para n = 0
+    if(n == 0)
+        return "0";
+
+    //Caso base para n = 1
+    else if(n == 1)
+        return "1";
+
+    //Passo recursivo: divide por 2 e concatena com o resto
+    else
+        return decimalParaBinario(n / 2) + (n % 2 ? "1" : "0");
+}
+
 int main()
 {
     int opcao;
@@ -33,6 +48,7 @@ int main()
         cout << "\n================= MENU =================" << endl;
         cout << "1. Somatorio" << endl;
         cout << "2. Soma de Digitos" << endl;
+        cout << "3. Versao Binaria" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -65,6 +81,21 @@ int main()
 
                 int resultado = somaDigitos(numero);
                 cout << "A soma dos digitos de " << numero << " eh => " << resultado << endl;
+                break;
+            }
+
+            case 3: {
+                int numero;
+                cout << "Digite um numero inteiro positivo => ";
+                cin >> numero;
+
+                if(numero < 0) {
+                    cout << "O numero deve ser positivo!" << endl;
+                    return 1;
+                }
+
+                string binario = decimalParaBinario(numero);
+                cout << "O numero " << numero << " em binario eh => " << binario << endl;
                 break;
             }
 
