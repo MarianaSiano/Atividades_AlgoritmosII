@@ -20,6 +20,38 @@ float calcMedia(int n, float vet[])
     return soma / n;
 }
 
+///Funcao que consta e imprime os elementos maiores que val
+int func1(int n, int vet[], int val)
+{
+    int count = 0;
+
+    for(int i = 0;  i < n; i++) {
+        if(vet[i] > val) {
+            cout << "Posicao " << i << " valor " << vet[i]
+            << " endereco " << &vet[i] << endl;
+        }
+    }
+
+    return count;
+}
+
+//Funçao que aloca e retorna um novo vetor com elementos maiores que val
+int *func2(int n, int vet[], int val, int tam)
+{
+    if(tam <= 0)
+        return nullptr; //Nenhum elemento maior
+
+    int *novoVetor = new int[tam];
+    int j = 0;
+
+    for(int i = 0; i < n; i++) {
+        if(vet[i] > val)
+            novoVetor[j++] = vet[i];
+    }
+
+    return novoVetor;
+}
+
 int main()
 {
     int opcao;
@@ -30,6 +62,7 @@ int main()
         cout << "2. Media dos Valores com Funcao" << endl;
         cout << "3. Alocando Vetor Separadamente e Calculando a Media" << endl;
         cout << "4. Ponteiros e Alocacao Dinamica" << endl;
+        cout << "5. Imprime Vetor" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -196,6 +229,53 @@ int main()
                 //Passo 9: Libere a memoria alocada
                 delete [] v;
                 break;
+            }
+
+            case 5: {
+                int n, val;
+
+                //Passo 1: Leitura do tamanho do vetor (dinamico)
+                cout << "Digite o tamanho do vetor";
+                cin >> n;
+
+                //Passo 2: Alocação dinâmica do vetor principal
+                int *vet = new int[n];
+
+                //Passo 3: Preenchimento do vetor
+                cout << "Digite os " << n << " elementos" << endl;
+                for(int i = 0; i < n; i++) {
+                    cout << "Preencha o vetor => ";
+                    cin >> vet[i];
+                }
+
+                //Passo 4: Leitura do valor de comparação
+                cout << "Digite o valor de comparacao => ";
+                cin >> val;
+
+                //Passo 5: Chamada das funções
+                cout << "Elementos maiores que " << val << endl;
+                int tam = func1(n, vet, val);
+
+                int *resultado = func2(n, vet, val, tam);
+
+                //Passo 6: Exibição do resultado
+                if(resultado) {
+                    cout << "Novo vetor (elementos > " << val << ") => [";
+                    for(int i = 0; i < tam; i++) {
+                        cout << resultado[i];
+                        if(i < tam - 1)
+                            cout << ", ";
+                    }
+                    cout << "]" << endl;
+                    delete [] resultado; //Liberação do vetor resultado
+                }
+                else
+                    cout << "Nenhum elemento maior encontrado" << endl;
+
+                //Passo 7: Liberação da memória principal
+                delete [] vet;
+                break;
+
             }
 
             case 0:
