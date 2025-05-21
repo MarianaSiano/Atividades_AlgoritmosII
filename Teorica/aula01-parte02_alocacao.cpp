@@ -3,6 +3,11 @@
 
 using namespace std;
 
+float *alocaVetor(int n)
+{
+    return new float[n];
+}
+
 //Funcao para Calcular a Media dos Elementos do Vetor
 float calcMedia(int n, float vet[])
 {
@@ -23,6 +28,7 @@ int main()
         cout << "\n================= MENU =================" << endl;
         cout << "1. Media dos Valores" << endl;
         cout << "2. Media dos Valores com Funcao" << endl;
+        cout << "3. Alocando Vetor Separadamente e Calculando a Media" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -99,6 +105,47 @@ int main()
 
                 //Passo 6: Liberar a memoria alocada
                 delete [] vetor;
+                break;
+            }
+
+            case 3: {
+                int tam;
+                float *vetor = nullptr; //Inicizaliza como nullptr
+
+                //Passo 1: Leitura do tamanho do vetor
+                cout << "Digite o tamanho do vetor => ";
+                cin >> tam;
+
+                //Validacao do tamanho
+                if(tam <= 0) {
+                    cerr << "Erro: O tamanho deve ser positivo!" << endl;
+                    return 1;
+                }
+
+                //Passo 2: Alocação dinamica usando a funcao
+                vetor = alocaVetor(tam);
+                if(!vetor) {
+                    cerr << "Erro na Alocacao Dinamica" << endl;
+                    return 1;
+                }
+
+                //Passo 3: Leitura dos Elementos
+                cout << "Digite os " << tam << " elementos" << endl;
+                for(int i = 0; i < tam; i++) {
+                    cout << "Elemento " << i + 1 << " => ";
+                    cin >> vetor[i];
+                }
+
+                //Calculo da media
+                float media = calcMedia(tam, vetor);
+
+                //Saida formatada
+                cout << fixed << setprecision(2);
+                cout << "Media calculada => " << media << endl;
+
+                //Liberacao de memoria
+                delete [] vetor;
+                vetor = nullptr; //Boa pratica após liberar memoria
                 break;
             }
 
