@@ -87,6 +87,16 @@ int somaVetor(int vetor[], int n)
     return vetor[n - 1] + somaVetor(vetor, n - 1);
 }
 
+//Função recursiva que conta quanto números ímpares há no vetor
+int contarImpares(int vetor[], int n)
+{
+    if(n == 0)
+        return 0; //Caso base
+
+    //Verifica se o último número é ímpar e soma um se for
+    return (vetor[n - 1] % 2 != 0 ? 1 : 0) + contarImpares(vetor, n - 1);
+}
+
 int main()
 {
     int opcao;
@@ -99,6 +109,7 @@ int main()
         cout << "4. Sequencia" << endl;
         cout << "5. Menor Valor" << endl;
         cout << "6. Soma Vetor" << endl;
+        cout << "7. Quantidade de Valores Impares" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -208,6 +219,26 @@ int main()
 
                 int soma = somaVetor(vetor, n);
                 cout << "A soma dos valores do vetor eh => " << soma << endl;
+
+                delete [] vetor;
+                break;
+            }
+
+            case 7: {
+                int n;
+                cout << "Digite o tamanho do vetor => ";
+                cin >> n;
+
+                int *vetor = new int[n];
+
+                cout << "Preencha o vetor" << endl;
+                for(int i = 0; i < n; i++) {
+                    cout << "Digite um valor para a posicao " << i + 1 << " => ";
+                    cin >> vetor[i];
+                }
+
+                int qtdImpares = contarImpares(vetor, n);
+                cout << "Quantifade de valores impares no vetor => " << qtdImpares << endl;
 
                 delete [] vetor;
                 break;
