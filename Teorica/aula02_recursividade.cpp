@@ -98,6 +98,7 @@ int main()
         cout << "3. Versao Binaria" << endl;
         cout << "4. Sequencia" << endl;
         cout << "5. Menor Valor" << endl;
+        cout << "6. Soma Vetor" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -201,12 +202,12 @@ int main()
 
                 cout << "Preencha o vetor" << endl;
                 for(int i = 0; i < n; i++) {
-                    cout << "Digite o valor na posicao " << i + 1;
+                    cout << "Digite o valor na posicao " << i + 1 << " => ";
                     cin >> vetor[i];
                 }
 
                 int soma = somaVetor(vetor, n);
-                cout << "A soma dos valores do vetor eh => " << soma << endl/
+                cout << "A soma dos valores do vetor eh => " << soma << endl;
 
                 delete [] vetor;
                 break;
