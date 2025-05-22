@@ -75,7 +75,7 @@ int main()
                 cout << "Preencha o vetor com o tamanho " << tamanho << endl;
 
                 for(int i = 0; i < tamanho; i++) {
-                    cout << "Digite o valor da posicao " << i + 1 << endl;
+                    cout << "Digite o valor da posicao " << i + 1 << " => ";
                     cin >> vetor[i];
                 }
 
