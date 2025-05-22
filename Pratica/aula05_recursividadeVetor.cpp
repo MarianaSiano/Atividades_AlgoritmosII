@@ -26,6 +26,7 @@ int main()
     do {
         cout << "\n================= MENU =================" << endl;
         cout << "1. Menor Valor" << endl;
+        cout << "2. Quantidade de Pares" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -48,6 +49,10 @@ int main()
                 cout << "O menor valor do vetor eh => " << menor << endl;
 
                 delete [] vetor;
+                break;
+            }
+
+            case 2: {
                 break;
             }
 
