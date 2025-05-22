@@ -19,6 +19,20 @@ int menorValor(int vetor[], int n)
         return menorResto;
 }
 
+int pares(int vet[], int n)
+{
+    //Caso base: se o vetor for vazio
+    if(n == 0)
+        return 0;
+
+    //Verifica se o ultimo elemento do vetor atual é par
+    int ultimoElemento = vet[n - 1];
+    int ehPar = (ultimoElemento % 2 == 0) ? 1 : 0;
+
+    //Chamada recursiva para o restante do vetor (n - 1) elementos
+    return ehPar + pares(vet, n - 1);
+}
+
 int main()
 {
     int opcao;
@@ -53,6 +67,22 @@ int main()
             }
 
             case 2: {
+                int tamanho;
+                cout << "Digite o tamanho do vetor => ";
+                cin >> tamanho;
+
+                int *vetor = new int[tamanho];
+                cout << "Preencha o vetor com o tamanho " << tamanho << endl;
+
+                for(int i = 0; i < tamanho; i++) {
+                    cout << "Digite o valor da posicao " << i + 1 << endl;
+                    cin >> vetor[i];
+                }
+
+                int totalPares;
+                totalPares = pares(vetor, tamanho);
+
+                cout << "A o total de pares nesse vetor eh de => " << totalPares << endl;
                 break;
             }
 
