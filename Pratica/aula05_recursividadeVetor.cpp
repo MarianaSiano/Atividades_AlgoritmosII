@@ -32,6 +32,22 @@ int main()
 
         switch(opcao) {
             case 1: {
+                int n;
+                cout << "Digite o tamanho do vetor => ";
+                cin >> n;
+
+                int *vetor = new int[n];
+
+                cout << "Digite " << n << " numeros inteiros" << endl;
+                for(int i = 0; i < n; i++) {
+                    cout << "Preencha o vetor => ";
+                    cin >> vetor[i];
+                }
+
+                int menor = menorValor(vetor, n);
+                cout << "O menor valor do vetor eh => " << menor << endl;
+
+                delete [] vetor;
                 break;
             }
 
