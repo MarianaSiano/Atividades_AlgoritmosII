@@ -42,13 +42,12 @@ bool negativo(int vet[], int n)
 {
     //Caso Base: vetor vazio
     if(n == 0)
-        return false;
+        return quantidadesNegativos > 0;
 
     //Verifica o último elemento
     if(vet[n - 1] < 0) {
         quantidadesNegativos++;
         valorNegativos.push_back(vet[n - 1]);
-        return true || negativo(vet, n - 1); //Retorna true se encontrar algum negativo
     }
 
     //Chamada recursiva para o restante do vetor
