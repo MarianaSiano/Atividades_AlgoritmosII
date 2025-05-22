@@ -55,7 +55,7 @@ int main()
         cout << "\n================= MENU =================" << endl;
         cout << "1. Menor Valor" << endl;
         cout << "2. Quantidade de Pares" << endl;
-        cout << "3. Exuste Negativo" << endl;
+        cout << "3. Existe Negativo" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
