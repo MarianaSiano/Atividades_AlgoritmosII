@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -33,18 +34,32 @@ int pares(int vet[], int n)
     return ehPar + pares(vet, n - 1);
 }
 
+//Variaveis globais para armaznar resultados adicionais
+int quantidadesNegativos = 0;
+vector<int> valorNegativos;
+
 bool negativo(int vet[], int n)
 {
-    //Caso base: vetor vazio
+    //Caso Base: vetor vazio
     if(n == 0)
         return false;
 
-    //Verifica o último elemento do vetor atual
-    if(vet[n - 1] < 0)
-        return true;
+    //Verifica o último elemento
+    if(vet[n - 1] < 0) {
+        quantidadesNegativos++;
+        valorNegativos.push_back(vet[n - 1]);
+        return true || negativo(vet, n - 1); //Retorna true se encontrar algum negativo
+    }
 
     //Chamada recursiva para o restante do vetor
     return negativo(vet, n - 1);
+}
+
+//Funcao para resetar as variaveis globais antes de cada teste
+void resetarVariaveis()
+{
+    quantidadesNegativos = 0;
+    valorNegativos.clear();
 }
 
 int main()
@@ -114,7 +129,15 @@ int main()
                     cin >> vetor[i];
                 }
 
-                cout << "Tem negativo? " << (negativo(vetor, tamanho) ? "Sim" : "Nao") << endl;
+                resetarVariaveis();
+                bool resultado = negativo(vetor, tamanho);
+                cout << "Tem negativo? " << (resultado ? "Sim" : "Nao") << endl;
+                cout << "Quantidade => " << quantidadesNegativos << endl;
+                cout << "Valores => ";
+
+                for(int num : valorNegativos)
+                    cout << num << " ";
+                cout << endl;
                 break;
             }
 
