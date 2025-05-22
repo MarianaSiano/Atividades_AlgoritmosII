@@ -76,6 +76,17 @@ int menorValor(int vetor[], int n)
         return menorResto;
 }
 
+//Função recursiva que retorna a soma dos valores do vetor
+int somaVetor(int vetor[], int n)
+{
+    //Caso base: vetor com um elemento
+    if(n == 1)
+        return vetor[0];
+    
+    //Chamada recursiva: soma o última elemento com a soma dos anteriores
+    return vetor[n - 1] + somaVetor(vetor, n - 1);
+}
+
 int main()
 {
     int opcao;
@@ -175,6 +186,27 @@ int main()
 
                 int menor = menorValor(vetor, n);
                 cout << "O menor valor do vetor eh => " << menor << endl;
+
+                delete [] vetor;
+                break;
+            }
+
+            case 6: {
+                int n;
+
+                cout << "Digite o tamanho do vetor => ";
+                cin >> n;
+
+                int *vetor = new int[n];
+
+                cout << "Preencha o vetor" << endl;
+                for(int i = 0; i < n; i++) {
+                    cout << "Digite o valor na posicao " << i + 1;
+                    cin >> vetor[i];
+                }
+
+                int soma = somaVetor(vetor, n);
+                cout << "A soma dos valores do vetor eh => " << soma << endl/
 
                 delete [] vetor;
                 break;
