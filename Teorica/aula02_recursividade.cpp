@@ -97,6 +97,22 @@ int contarImpares(int vetor[], int n)
     return (vetor[n - 1] % 2 != 0 ? 1 : 0) + contarImpares(vetor, n - 1);
 }
 
+//Função recursiva que substitui a primeira ocorrência de um número menor que valor
+void substituiMenor(int val, int vet[], int n)
+{
+    if(n == 0)
+        return; //Caso base: vetor vazio
+
+    //Se o valot atual for menor que val, substitui e encerra
+    if(vet[0] < val) {
+        vet[0] = val;
+        return;
+    }
+
+    //Chamada recursiva no restante do vetor
+    substituiMenor(val, vet + 1, n - 1);
+}
+
 int main()
 {
     int opcao;
@@ -110,6 +126,7 @@ int main()
         cout << "5. Menor Valor" << endl;
         cout << "6. Soma Vetor" << endl;
         cout << "7. Quantidade de Valores Impares" << endl;
+        cout << "8. Substitui Menor" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -241,6 +258,34 @@ int main()
                 cout << "Quantifade de valores impares no vetor => " << qtdImpares << endl;
 
                 delete [] vetor;
+                break;
+            }
+
+            case 8: {
+                int tamanho;
+                cout << "Digite o tamanho do vetor => ";
+                cin >> tamanho;
+
+                int *vet = new int[tamanho];
+
+                cout << "Preencha o vetor" << endl;
+                for(int i = 0; i < tamanho; i++) {
+                    cout << "Digite o valor para a posicao " << i + 1 << " => ";
+                    cin >> vet[i];
+                }
+
+                int valor;
+                cout << "Digite um valor INTEIRO => ";
+                cin >> valor;
+
+                substituiMenor(valor, vet, tamanho);
+
+                cout << "Vetor apos substituicao => ";
+                for(int i = 0; i < tamanho; i++)
+                    cout << vet[i] << " ";
+                cout << endl;
+
+                delete [] vet;
                 break;
             }
 
