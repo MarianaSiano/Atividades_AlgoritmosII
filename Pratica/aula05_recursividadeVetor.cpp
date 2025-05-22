@@ -33,6 +33,20 @@ int pares(int vet[], int n)
     return ehPar + pares(vet, n - 1);
 }
 
+bool negativo(int vet[], int n)
+{
+    //Caso base: vetor vazio
+    if(n == 0)
+        return false;
+
+    //Verifica o último elemento do vetor atual
+    if(vet[n - 1] < 0)
+        return true;
+
+    //Chamada recursiva para o restante do vetor
+    return negativo(vet, n - 1);
+}
+
 int main()
 {
     int opcao;
@@ -41,6 +55,7 @@ int main()
         cout << "\n================= MENU =================" << endl;
         cout << "1. Menor Valor" << endl;
         cout << "2. Quantidade de Pares" << endl;
+        cout << "3. Exuste Negativo" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -87,6 +102,19 @@ int main()
             }
 
             case 3: {
+                int tamanho;
+                cout << "Digite o tamanho do vetor => ";
+                cin >> tamanho;
+
+                int *vetor = new int[tamanho];
+
+                cout << "Preenchendo o vetor" << endl;
+                for(int i = 0; i < tamanho; i++) {
+                    cout << "Digite um numero INTEIRO para a posicao " << i + 1 << " => ";
+                    cin >> vetor[i];
+                }
+
+                cout << "Tem negativo? " << (negativo(vetor, tamanho) ? "Sim" : "Nao") << endl;
                 break;
             }
 
