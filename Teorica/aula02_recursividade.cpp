@@ -60,6 +60,22 @@ int sequencia(int n, int *npar, int *nimpar)
     }
 }
 
+//Função recursiva que retorna o menor valor no vetor
+int menorValor(int vetor[], int n)
+{
+    //Caso base: se há apenas um elemento, ele é o menor
+    if(n == 1)
+        return vetor[0];
+
+    //Recursão: compara o último elemento com o menor do restante
+    int menorResto = menorValor(vetor, n - 1);
+
+    if(vetor[n - 1] < menorResto)
+        return vetor[n - 1];
+    else
+        return menorResto;
+}
+
 int main()
 {
     int opcao;
@@ -70,6 +86,7 @@ int main()
         cout << "2. Soma de Digitos" << endl;
         cout << "3. Versao Binaria" << endl;
         cout << "4. Sequencia" << endl;
+        cout << "5. Menor Valor" << endl;
         cout << "0. Sair" << endl;
         cout << "Escolha uma opcao => ";
         cin >> opcao;
@@ -140,6 +157,26 @@ int main()
                 cout << "Total de numeros gerados => " << total << endl;
                 cout << "Numeros pares => " << pares << endl;
                 cout << "Numeros impares => " << impares << endl;
+                break;
+            }
+
+            case 5: {
+                int n;
+                cout << "Digite o tamanho do vetor => ";
+                cin >> n;
+
+                int *vetor = new int[n];
+
+                cout << "Digite " << n << " numeros inteiros" << endl;
+                for(int i = 0; i < n; i++) {
+                    cout << "Preencha o vetor => ";
+                    cin >> vetor[i];
+                }
+
+                int menor = menorValor(vetor, n);
+                cout << "O menor valor do vetor eh => " << menor << endl;
+
+                delete [] vetor;
                 break;
             }
 
