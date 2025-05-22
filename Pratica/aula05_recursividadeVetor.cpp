@@ -86,6 +86,10 @@ int main()
                 break;
             }
 
+            case 3: {
+                break;
+            }
+
             case 0:
                 cout << "Encerrando o programa." << endl;
                 break;
